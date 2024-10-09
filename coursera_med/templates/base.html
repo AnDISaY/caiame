@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <section class="header">
+        <div class="header__container container">
+            <a href="{% url 'home' %}" class="header__logo"><img src="{% static 'images/icon-logo.svg' %}" alt="Logo icon"></a>
+            <div class="header__text">Изучить курсы</div>
+            <div class="header__account">
+                {% if user %}
+                <a href="{% url 'profile' %}" class="header__account-text">Личный кабинет</a>
+                {% else %}
+                <a href="{% url 'login' %}" class="header__account-text">Войти</a>
+                <div class="header__account-vl"></div>
+                <a href="{% url 'signup' %}" class="header__account-text">Зарегистрироваться</a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    {% block content %}
+    {% endblock %}
+    <section class="footer">
+        <div class="footer__container container">
+            <div class="footer__content">
+                <div class="footer__title">Центрально-Азиатский Институт Дополнительного Медицинского Образования</div>
+                <div class="footer__grid">
+                    <a href="#" class="footer__li">Курсы</a>
+                    <a href="{% url 'profile' %}" class="footer__li">Личный кабинет</a>
+                    <a href="{% url 'signup' %}" class="footer__li">Регистрация</a>
+                    <a href="#" class="footer__li">Форум и чат</a>
+                    <a href="#" class="footer__li">Администрирование</a>
+                    <a href="{% url 'login' %}" class="footer__li">Войти</a>
+                    <a href="#" class="footer__li">Контакты</a>
+                    <a href="#" class="footer__li">О нас</a>
+                    <a href="#" class="footer__li">Техподдержка</a>
+                </div>
+            </div>
+            <div class="footer__lasttext">© 2024 Центрально азиатский институт дополнительного медицинского образования</div>
+        </div>
+    </section>
+</body>
+</html>

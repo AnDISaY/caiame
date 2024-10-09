@@ -1,0 +1,704 @@
+{% extends 'base.html' %}
+{% load static %}
+<head>
+    <title>Course #primary key</title>
+</head>
+{% block content %}
+<nav class="navbar navbar-expand-xxl fixed-top bg-white">
+    <div class="container-xxl">
+        <a href="{% url 'home' %}"class="navbar_brand" >
+            <img src="{% static 'PNMO_media/logo_home_1.svg' %}" alt="Home">
+        </a>
+        <a href="#" class="nav-link course-search-home">Изучить курсы</a>
+        <ul class="navbar-nav">
+            <li class="nav-item signin-nav">
+                <a href="{% url 'login' %}" class="nav-link">Войти</a>
+            </li>
+            <li class="nav-item divider">|</li>
+            <li class="nav-item reg-nav">
+                <a href="{% url 'register' %}" class="nav-link">Зарегистрироваться</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="course-overview-container">
+    <img src="{% static 'PNMO_media/woman_doctor.svg' %}" alt="" class="course-overview-image">
+    <div class="course-overview-info-container container-xxl">
+        <div class="course-overview-text-container">
+            <p class="course-author-text">Издатель: КГТУ им. Раззакова</p>
+            <h3 class="course-name-text">Продвинутая клиническая диагностика и терапевтические методы</h3>
+        </div>
+        <div class="course-filter-container course-page-main-info-container">
+            <div class="course-filter-title-container course-page-diff-container">
+                <h3 class="course-filter-title-text course-page-diff-title">Средняя</h3>
+                <p class="course-page-diff-text">— сложность курса</p>
+            </div>
+            <form method="get" id="filter-form">
+                <div class="form-row select course-page-form-row">
+                    <div class="col select select-wrapper course-page-price-container">
+                        <h3 class="course-page-price-title">150 сом</h3>
+                        <p class="course-page-price-text">— стоимость 1 часа</p>
+                    </div>
+                    <div class="col select select-wrapper course-page-length-container">
+                        <h3 class="course-page-length-title">36 часов</h3>
+                        <p class="course-page-length-text">— длительность обучения</p>
+                    </div>
+                    <div class="col select select-wrapper course-page-lang-container">
+                        <h3 class="course-page-lang-title">Русский</h3>
+                        <p class="course-page-lang-text">— язык курса</p>
+                    </div>
+                    <div class="col select select-wrapper credit-type-wrapper course-page-reg-btn-container">
+                        <a href="#" class="btn btn-info course-page-reg-btn">
+                            <p class="reg-btn-text">Зарегистрироваться</p>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container-xxl modules-info-text-container">
+    <div class="modules-info-wrapper">
+        <div class="modules-title-container">
+            <h3 class="modules-title">
+                Основная информация
+            </h3>
+        </div>
+        <div class="modules-text-1-container">
+            <p class="modules-text-1">
+                Независимо от вашего академического прошлого, программа "Магистр наук в области данных" 
+                (MS-DS) является идеальным выбором, если вы заинтересованы в карьере в сфере анализа данных. 
+                Приём на программу основан на вашей успеваемости в первых трёх курсах.
+            </p>
+        </div>
+        <div class="modules-text-2-container">
+            <p class="modules-text-2">
+                Вы изучите теорию, методы, инструменты и языки программирования — навыки, которые квалифицируют 
+                вас для различных должностей аналитика данных. Согласно данным Бюро трудовой статистики США, 
+                количество таких вакансий ожидается увеличится на 36% в период с 2021 по 2031 год, 
+                что более чем в семь раз превышает средний темп роста всех рабочих мест.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container-xxl modules-container">
+    <div class="modules-wrapper">
+        <div class="module-object certificate-dropdown-container module-first">
+            <div class="certificate-info module-info">
+                <h3 class="certificate-course-name module-number ">Модуль #001</h3>
+                <p class="certificate-course-desc module-desc">Short module description</p>
+            </div>
+            <div class="module-status-container">
+                <div class="module-text-container">
+                    <p class="module-status-text">
+                        В процессе
+                    </p>
+                </div>
+                <div class="module-link-container">
+                    <button class="dropdown-btn module-btn">
+                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr class="custom-hr modules-hr">
+        <div class="module-object certificate-dropdown-container">
+            <div class="certificate-info module-info">
+                <h3 class="certificate-course-name module-number">Модуль #002</h3>
+                <p class="certificate-course-desc module-desc">Short module description</p>
+            </div>
+            <div class="module-status-container">
+                <div class="module-text-container">
+                    <p class="module-status-text module-not-started">
+                        Не начат
+                    </p>
+                </div>
+                <div class="module-link-container">
+                    <button class="dropdown-btn module-btn">
+                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr class="custom-hr modules-hr">
+        <div class="module-object certificate-dropdown-container">
+            <div class="certificate-info module-info">
+                <h3 class="certificate-course-name module-number">Модуль #003</h3>
+                <p class="certificate-course-desc module-desc">Short module description</p>
+            </div>
+            <div class="module-status-container">
+                <div class="module-text-container">
+                    <p class="module-status-text module-not-started">
+                        Не начат
+                    </p>
+                </div>
+                <div class="module-link-container">
+                    <button class="dropdown-btn module-btn">
+                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr class="custom-hr modules-hr">
+        <div class="module-object certificate-dropdown-container">
+            <div class="certificate-info module-info">
+                <h3 class="certificate-course-name module-number module-complete">Модуль #004</h3>
+                <p class="certificate-course-desc module-desc module-complete">Short module description</p>
+            </div>
+            <div class="module-status-container">
+                <div class="module-text-container">
+                    <p class="module-status-text module-complete">
+                        Завершено
+                    </p>
+                </div>
+                <div class="module-link-container">
+                    <button class="dropdown-btn module-btn">
+                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr class="custom-hr modules-hr">
+        <div class="module-object certificate-dropdown-container">
+            <div class="certificate-info module-info">
+                <h3 class="certificate-course-name module-number module-complete">Модуль #005</h3>
+                <p class="certificate-course-desc module-desc module-complete">Short module description</p>
+            </div>
+            <div class="module-status-container">
+                <div class="module-text-container">
+                    <p class="module-status-text module-complete">
+                        Завершено
+                    </p>
+                </div>
+                <div class="module-link-container">
+                    <button class="dropdown-btn module-btn">
+                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr class="custom-hr modules-hr">
+        <div class="module-object certificate-dropdown-container">
+            <div class="certificate-info module-info">
+                <h3 class="certificate-course-name module-number ">Модуль #006</h3>
+                <p class="certificate-course-desc module-desc">Short module description</p>
+            </div>
+            <div class="module-status-container">
+                <div class="module-text-container">
+                    <p class="module-status-text">
+                        В процессе
+                    </p>
+                </div>
+                <div class="module-link-container">
+                    <button class="dropdown-btn module-btn">
+                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr class="custom-hr modules-hr">
+        <div class="module-object certificate-dropdown-container module-last">
+            <div class="certificate-info module-info">
+                <h3 class="certificate-course-name module-number">Модуль #007</h3>
+                <p class="certificate-course-desc module-desc">Short module description</p>
+            </div>
+            <div class="module-status-container">
+                <div class="module-text-container">
+                    <p class="module-status-text module-not-started">
+                        Не начат
+                    </p>
+                </div>
+                <div class="module-link-container">
+                    <button class="dropdown-btn module-btn">
+                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-xxl modules-container tasks-container">
+    <div class="modules-wrapper tasks-wrapper">
+        <div class="module-object certificate-dropdown-container">
+            <div class="certificate-info module-info task-info">
+                <h3 class="certificate-course-name module-number module-complete">Задание #001</h3>
+                <p class="certificate-course-desc module-desc module-complete">Short module description</p>
+            </div>
+            <div class="module-status-container">
+                <div class="module-text-container">
+                    <p class="module-status-text module-complete">
+                        Завершено
+                    </p>
+                </div>
+                <div class="module-link-container">
+                    <button class="dropdown-btn module-btn">
+                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr class="custom-hr modules-hr">
+        <div class="module-object certificate-dropdown-container">
+            <div class="certificate-info module-info task-info">
+                <h3 class="certificate-course-name module-number">Задание #002</h3>
+                <p class="certificate-course-desc module-desc">Short module description</p>
+            </div>
+            <div class="module-status-container">
+                <div class="module-text-container">
+                    <p class="module-status-text module-not-started">
+                        Не начат
+                    </p>
+                </div>
+                <div class="module-link-container">
+                    <button class="dropdown-btn module-btn">
+                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr class="custom-hr modules-hr">
+        <div class="module-object certificate-dropdown-container">
+            <div class="certificate-info module-info test-info">
+                <h3 class="certificate-course-name module-number test-not-started">Тестирование #001</h3>
+                <p class="certificate-course-desc module-desc">Short module description</p>
+            </div>
+            <div class="module-status-container">
+                <div class="module-text-container">
+                    <p class="module-status-text module-not-started">
+                        Не начат
+                    </p>
+                </div>
+                <div class="module-link-container">
+                    <button class="dropdown-btn module-btn">
+                        <img src="{% static 'PNMO_media/test_arrow_red.svg' %}" alt="arrow" class="module-arrow-img">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr class="custom-hr modules-hr">
+        <div class="module-object certificate-dropdown-container">
+            <div class="certificate-info module-info">
+                <h3 class="certificate-course-name module-number">Задание #003</h3>
+                <p class="certificate-course-desc module-desc">Short module description</p>
+            </div>
+            <div class="module-status-container">
+                <div class="module-text-container">
+                    <p class="module-status-text module-not-started">
+                        Не начат
+                    </p>
+                </div>
+                <div class="module-link-container">
+                    <button class="dropdown-btn module-btn">
+                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr class="custom-hr modules-hr">
+        <div class="module-object certificate-dropdown-container">
+            <div class="certificate-info module-info">
+                <h3 class="certificate-course-name module-number ">Задание #004</h3>
+                <p class="certificate-course-desc module-desc">Short module description</p>
+            </div>
+            <div class="module-status-container">
+                <div class="module-text-container">
+                    <p class="module-status-text module-not-started">
+                        Не начат
+                    </p>
+                </div>
+                <div class="module-link-container">
+                    <button class="dropdown-btn module-btn">
+                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr class="custom-hr modules-hr">
+        <div class="module-object certificate-dropdown-container module-last">
+            <div class="certificate-info module-info test-info">
+                <h3 class="certificate-course-name module-number test-not-started">Тестирование #002</h3>
+                <p class="certificate-course-desc module-desc">Short module description</p>
+            </div>
+            <div class="module-status-container">
+                <div class="module-text-container">
+                    <p class="module-status-text module-not-started">
+                        Не начат
+                    </p>
+                </div>
+                <div class="module-link-container">
+                    <button class="dropdown-btn module-btn">
+                        <img src="{% static 'PNMO_media/test_arrow_red.svg' %}" alt="arrow" class="module-arrow-img">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr class="custom-hr modules-hr">
+        <div class="progress-container">
+            <div class="progress-title-container">
+                <h3 class="progress-title">Прогресс курса</h3>
+            </div>
+            <div class="progress-bar-container">
+                <span class="progress-start">0%</span>
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                    <div class="progress-thumb" id="progress-thumb"></div>
+                </div>
+                <span class="progress-end" id="progress-end">100%</span>
+                <span class="progress-value" id="progress-value"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-xxl reviews-container">
+    <div class="reviews-wrapper">
+        <div class="reviews-stats-container">
+            <div class="reviews-stats-title">
+                <h3 class="stats-title">Отзывы</h3>
+            </div>
+            <div class="reviews-overall-rating-container">
+                <img src="{% static 'PNMO_media/big_rating_star.svg' %}" alt="star">
+                <h3 class="course-rating">4.9</h3>
+                <p class="course-num-of-reviews">69 reviews</p>
+            </div>
+            <div class="reviews-types-container">
+                <div class="reviews-ratings-container">
+                    <div class="rating-type-container">
+                        <p>5</p>
+                        <img src="{% static 'PNMO_media/small_rating_star.svg' %}" alt="star">
+                    </div>
+                    <div class="rating-progress-bar-container">
+                        <div class="progress-container2">
+                            <div class="progress-bar-container ratings-progress-bar">
+                                <div class="progress-bar progress-bar2">
+                                    <div class="progress" id="progress2"></div>
+                                </div>
+                                <span class="progress-value rating-progress-value" id="progress-value2"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews-ratings-container">
+                    <div class="rating-type-container">
+                        <p>4</p>
+                        <img src="{% static 'PNMO_media/small_rating_star.svg' %}" alt="star">
+                    </div>
+                    <div class="rating-progress-bar-container">
+                        <div class="progress-container2">
+                            <div class="progress-bar-container ratings-progress-bar">
+                                <div class="progress-bar progress-bar2">
+                                    <div class="progress rating-progress" id="progress3"></div>
+                                </div>
+                                <span class="progress-value rating-progress-value" id="progress-value3"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews-ratings-container">
+                    <div class="rating-type-container">
+                        <p>3</p>
+                        <img src="{% static 'PNMO_media/small_rating_star.svg' %}" alt="star">
+                    </div>
+                    <div class="rating-progress-bar-container">
+                        <div class="progress-container2">
+                            <div class="progress-bar-container ratings-progress-bar">
+                                <div class="progress-bar progress-bar2">
+                                    <div class="progress rating-progress" id="progress4"></div>
+                                </div>
+                                <span class="progress-value rating-progress-value" id="progress-value4"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews-ratings-container">
+                    <div class="rating-type-container">
+                        <p>2</p>
+                        <img src="{% static 'PNMO_media/small_rating_star.svg' %}" alt="star">
+                    </div>
+                    <div class="rating-progress-bar-container">
+                        <div class="progress-container2">
+                            <div class="progress-bar-container ratings-progress-bar">
+                                <div class="progress-bar progress-bar2">
+                                    <div class="progress rating-progress" id="progress5"></div>
+                                </div>
+                                <span class="progress-value rating-progress-value" id="progress-value5"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews-ratings-container">
+                    <div class="rating-type-container">
+                        <p>1</p>
+                        <img src="{% static 'PNMO_media/small_rating_star.svg' %}" alt="star" class="star-1">
+                    </div>
+                    <div class="rating-progress-bar-container">
+                        <div class="progress-container2">
+                            <div class="progress-bar-container ratings-progress-bar">
+                                <div class="progress-bar progress-bar2">
+                                    <div class="progress rating-progress" id="progress6"></div>
+                                </div>
+                                <span class="progress-value rating-progress-value" id="progress-value6"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="review-cards-wrapper">
+            <div class="review-card-container user-courses-container d-flex align-items-center flex-column">
+                <div class="review-grid-container user-courses-grid-container">
+                    <div class="review-photo-container course-photo-container">
+                        <img src="{% static 'PNMO_media/photoBlock.svg' %}" alt="">
+                        <h3>AK</h3>
+                    </div>
+                    <div class="review-info-container course-info-container">
+                        <div class="review-rating-container course-name-container">
+                            <img src="{% static 'PNMO_media/big_rating_star.svg' %}" alt="star">
+                            <h3 class="review-rating">5</h3>
+                            <p>Отзыв от 21 августа 2022</p>
+                        </div>
+                        <div class="review-desc">
+                            <p>
+                                Курс невероятно информативен и хорошо структурирован. 
+                                Полученные знания и навыки применимы в реальной клинической практике
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card-container user-courses-container d-flex align-items-center flex-column">
+                <div class="review-grid-container user-courses-grid-container">
+                    <div class="review-photo-container course-photo-container">
+                        <img src="{% static 'PNMO_media/photoBlock.svg' %}" alt="">
+                        <h3>AK</h3>
+                    </div>
+                    <div class="review-info-container course-info-container">
+                        <div class="review-rating-container course-name-container">
+                            <img src="{% static 'PNMO_media/big_rating_star.svg' %}" alt="star">
+                            <h3 class="review-rating">5</h3>
+                            <p>Отзыв от 21 августа 2022</p>
+                        </div>
+                        <div class="review-desc">
+                            <p>
+                                Курс невероятно информативен и хорошо структурирован. 
+                                Полученные знания и навыки применимы в реальной клинической практике
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card-container user-courses-container d-flex align-items-center flex-column">
+                <div class="review-grid-container user-courses-grid-container">
+                    <div class="review-photo-container course-photo-container">
+                        <img src="{% static 'PNMO_media/photoBlock.svg' %}" alt="">
+                        <h3>AK</h3>
+                    </div>
+                    <div class="review-info-container course-info-container">
+                        <div class="review-rating-container course-name-container">
+                            <img src="{% static 'PNMO_media/big_rating_star.svg' %}" alt="star">
+                            <h3 class="review-rating">5</h3>
+                            <p>Отзыв от 21 августа 2022</p>
+                        </div>
+                        <div class="review-desc">
+                            <p>
+                                Курс невероятно информативен и хорошо структурирован. 
+                                Полученные знания и навыки применимы в реальной клинической практике
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">Посмотреть остальные отзывы</a>
+        </div>
+    </div>
+</div>
+<div class="container-xxl discussion-container">
+    <div class="discussion-title-container">
+        <h3>Обсуждение</h3>
+    </div>
+    <div class="discussion-wrapper">
+        <div class="common-questions-wrapper" id="common-questions-wrapper">
+            <div class="question-dropdown-container first-question certificate-dropdown-container">
+                <div class="question-title-container certificate-info">
+                    <h3 class="discussion-question-object certificate-course-name">
+                        Как этические принципы влияют на медицинские решения?
+                    </h3>
+                </div>
+                <button class="dropdown-btn discussion-dropdown-btn" onclick="toggleText('extra-text1', 'discussion-dropdown-img1')">
+                    <img src="{% static 'PNMO_media/discussion_arrow.svg' %}" alt="" id="discussion-dropdown-img1" class="not-flipped">
+                </button>
+                <div id="extra-text1" class="dropdown-text hidden">
+                    This is the additional portion of text that appears when you click the button.
+                </div>
+            </div>
+            <hr class="custom-hr hr-discussions">
+            <div class="question-dropdown-container first-question certificate-dropdown-container">
+                <div class="question-title-container certificate-info">
+                    <h3 class="discussion-question-object certificate-course-name">
+                        Какие методы клинического обследования наиболее эффективны для диагностики хронических заболеваний?
+                    </h3>
+                </div>
+                <button class="dropdown-btn discussion-dropdown-btn" onclick="toggleText('extra-text2', 'discussion-dropdown-img2')">
+                    <img src="{% static 'PNMO_media/discussion_arrow.svg' %}" alt="" id="discussion-dropdown-img2" class="not-flipped">
+                </button>
+                <div id="extra-text2" class="dropdown-text hidden">
+                    This is the additional portion of text that appears when you click the button.
+                </div>
+            </div>
+            <hr class="custom-hr hr-discussions">
+            <div class="question-dropdown-container first-question certificate-dropdown-container">
+                <div class="question-title-container certificate-info">
+                    <h3 class="discussion-question-object certificate-course-name">
+                        Как улучшить коммуникацию с пациентами для повышения их вовлеченности в лечение?
+                    </h3>
+                </div>
+                <button class="dropdown-btn discussion-dropdown-btn" onclick="toggleText('extra-text3', 'discussion-dropdown-img3')">
+                    <img src="{% static 'PNMO_media/discussion_arrow.svg' %}" alt="" id="discussion-dropdown-img3" class="not-flipped">
+                </button>
+                <div id="extra-text3" class="dropdown-text hidden">
+                    This is the additional portion of text that appears when you click the button.
+                </div>
+            </div>
+        </div>
+        
+        <div class="question-card-container review-grid-container user-courses-grid-container">
+            <div class="question-photo-container review-photo-container course-photo-container">
+                <img src="{% static 'PNMO_media/question_mark.svg' %}" alt="">
+            </div>
+            <div class="question-info-container review-rating-container course-name-container">
+                <h3 class="question-card-title">Остались еще вопросы?</h3>
+                <a href="#">Задайте свой вопрос</a>
+            </div>
+        </div>
+        <a href="#" class="other-questions">Посмотреть остальные 34 вопроса</a>
+    </div>
+</div>
+<footer>
+    <div class="footer-wrapper">
+        <div class="footer-content-container container-xxl">
+            <div class="footer-links-container">
+                <div class="footer-title-container">
+                    <h2 class="footer-title-text">
+                        Платформа Непрерывного
+                        Медицинского Образования
+                    </h2>
+                </div>
+                <div class="footer-links-column-1">
+                    <a href="#" class="text-decoration-none text-reset footer-link">Курсы</a>
+                    <a href="#" class="text-decoration-none text-reset footer-link">Форум и чат</a>
+                    <a href="#" class="text-decoration-none text-reset footer-link">Контакты</a>
+                </div>
+                <div class="footer-links-column-2">
+                    <a href="#" class="text-decoration-none text-reset footer-link">Личный кабинет</a>
+                    <a href="#" class="text-decoration-none text-reset footer-link">Администрирование</a>
+                    <a href="#" class="text-decoration-none text-reset footer-link">О нас</a>
+                </div>
+                <div class="footer-links-column-2">
+                    <a href="#" class="text-decoration-none text-reset footer-link">Регистрация</a>
+                    <a href="#" class="text-decoration-none text-reset footer-link">Войти</a>
+                    <a href="#" class="text-decoration-none text-reset footer-link">Техподдержка</a>
+                </div>
+            </div>
+            <div class="footer-copyright-container">
+                <p class="copyright-text text-reset copyright-profile">
+                    © 2024 Центрально азиатский институт дополнительного медицинского образования
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}
+{% block extrascripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const progress = document.getElementById('progress');
+    const progressThumb = document.getElementById('progress-thumb');
+    const progressValue = document.getElementById('progress-value');
+    const progressPercentage = 69; 
+
+    const progress2 = document.getElementById('progress2');
+    const progressValue2 = document.getElementById('progress-value2');
+    const progressPercentage2 = 69; 
+
+    const progress3 = document.getElementById('progress3');
+    const progressValue3 = document.getElementById('progress-value3');
+    const progressPercentage3 = 31; 
+
+    const progress4 = document.getElementById('progress4');
+    const progressValue4 = document.getElementById('progress-value4');
+    const progressPercentage4 = 0; 
+
+    const progress5 = document.getElementById('progress5');
+    const progressValue5 = document.getElementById('progress-value5');
+    const progressPercentage5 = 0; 
+
+    const progress6 = document.getElementById('progress6');
+    const progressValue6 = document.getElementById('progress-value6');
+    const progressPercentage6 = 0; 
+
+    progress.style.width = progressPercentage + '%';
+    progressThumb.style.left = progressPercentage + '%';
+    progressValue.style.left = progressPercentage - 7.3 + '%';
+    progressValue.innerText = progressPercentage + '%';
+    progressValue.style.marginBottom = '3rem';
+
+    progress2.style.width = progressPercentage2 + '%';
+    progressValue2.style.left = 25 + '%';
+    progressValue2.innerText = progressPercentage2 + '%';
+
+    progress3.style.width = progressPercentage3 + '%';
+    progressValue3.style.left = 25 + '%';
+    progressValue3.innerText = progressPercentage3 + '%';
+
+    progress4.style.width = progressPercentage4 + '%';
+    progressValue4.style.left = 25 + '%';
+    progressValue4.innerText = progressPercentage4 + '%';
+
+    progress5.style.width = progressPercentage5 + '%';
+    progressValue5.style.left = 25 + '%';
+    progressValue5.innerText = progressPercentage5 + '%';
+
+    progress6.style.width = progressPercentage6 + '%';
+    progressValue6.style.left = 25 + '%';
+    progressValue6.innerText = progressPercentage6 + '%';
+});
+
+function toggleText(id, id2) {
+    var text = document.getElementById(id);
+    var dropdown = document.getElementById(id2)
+    var flipped = false
+    if (text.classList.contains("hidden")) {
+        text.classList.remove("hidden");
+    } else {
+        text.classList.add("hidden");
+    }
+    if (dropdown.classList.contains("not-flipped")) {
+
+        dropdown.classList.remove("not-flipped");
+        dropdown.classList.add("flipped");
+
+    } else if(dropdown.classList.contains("flipped")){
+
+        dropdown.classList.remove("flipped");
+        dropdown.classList.add("not-flipped");
+
+    }
+    adjustContainerHeight()
+}
+function adjustContainerHeight() {
+    var container = document.getElementById("common-questions-wrapper");
+    var dropdowns = document.getElementsByClassName("dropdown-text");
+    var totalHeight = 0;
+
+    for (var i = 0; i < dropdowns.length; i++) {
+        if (!dropdowns[i].classList.contains("hidden")) {
+            totalHeight += dropdowns[i].scrollHeight + 20;
+        }
+    }
+
+    totalHeight += 3 * 40; 
+
+    container.style.height = (totalHeight + 332) + "px"; 
+}
+</script>
+{% endblock %}

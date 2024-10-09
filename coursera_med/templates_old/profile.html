@@ -1,0 +1,277 @@
+{% extends 'base.html' %}
+{% load static %}
+<head>
+    <title>Profile</title>
+</head>
+{% block content %}
+<nav class="navbar navbar-expand-xxl fixed-top bg-white">
+    <div class="container-xxl">
+        <a href="{% url 'home' %}"class="navbar_brand" >
+            <img src="{% static 'PNMO_media/logo_home_1.svg' %}" alt="Home">
+        </a>
+        <a href="#" class="nav-link course-search-home">Изучить курсы</a>
+        <ul class="navbar-nav">
+            <li class="nav-item signin-nav">
+                <a href="{% url 'login' %}" class="nav-link">Войти</a>
+            </li>
+            <li class="nav-item divider">|</li>
+            <li class="nav-item reg-nav">
+                <a href="{% url 'register' %}" class="nav-link">Зарегистрироваться</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="profile-overview-container container-xxl">
+    <div class="personal-info-container">
+        <div class="edit-btn-container">
+            <button type="button" class="edit-btn">
+                <img src="{% static 'PNMO_media/edit_btn.svg' %}" alt="" class="edit-btn-image">
+            </button>
+        </div>
+        <div class="personal-info-title-container">
+            <h3 class="personal-info-title-text">Личные данные</h3>
+        </div>
+        <div class="personal-photo-container">
+            <img src="{% static 'PNMO_media/doctor_home.png' %}" alt="profile pic" class="personal-photo">
+        </div>
+        <div class="personal-name-container">
+            <h3 class="personal-name-text">Raddan Yatoro</h3>
+        </div>
+        <div class="personal-info-update-container d-flex flex-row">
+            <p class="update-text">Обновить данные</p>
+            <img src="{% static 'PNMO_media/updateCircle.svg' %}" alt="circle" class="update-circle">
+        </div>
+    </div>
+    <div class="profile-overview-text-container">
+        <div class="profile-title-container">
+            <h3 class="profile-title-text">Мой профиль</h3>
+        </div>
+        <div class="profile-overview-desc-container">
+            <p class="profile-overview-desc-text">
+                Управление вашим профилем и курсами. 
+                Просмотрите и редактируйте свои личные данные, 
+                отслеживайте прогресс обучения и получайте сертификаты
+            </p>
+        </div>
+        <div class="profile-logout-btn-container">
+            <input type="button" class="btn btn-secondary profile-logout-btn" value="Выйти">
+        </div>
+    </div>
+</div>
+<div class="container-xxl user-courses">
+    <div class="user-courses-wrapper">
+        <div class="user-courses-title-container">
+            <h3>Мои курсы</h3>
+        </div>
+        <div class="user-courses-container d-flex align-items-center flex-column">
+            <div class="user-courses-grid-container">
+                <div class="course-photo-container">
+                    <img src="{% static 'PNMO_media/photoBlock.svg' %}" alt="">
+                </div>
+                <div class="course-info-container">
+                    <div class="course-name-container">
+                        <h3>Course name</h3>
+                    </div>
+                    <div class="course-desc">
+                        <p>Course desc</p>
+                    </div>
+                    <div class="course-difficulty-spec-container">
+                        <div class="course-diff-container diff-profile">
+                            <p>Difficulty</p>
+                        </div>
+                        <div class="course-spec-container spec-profile">
+                            <p>Specialization</p>
+                        </div>
+                    </div>
+                    <div class="course-credit-container credit-profile">
+                        <p>Credit type</p>
+                    </div>
+                </div>
+                <div class="course-continue-progress-container">
+                    <div class="progress-title-container">
+                        <p class="course-progress-text">Course progress</p>
+                    </div>
+                    <div class="progress-num-container">
+                        <h3 class="progress-num">63%</h3>
+                    </div>
+                    <div class="course-link-container">
+                        <a href="#" class="btn btn-info btn-course-detail btn-user-courses">Перейти к курсу</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="user-courses-container d-flex align-items-center flex-column">
+            <div class="user-courses-grid-container">
+                <div class="course-photo-container">
+                    <img src="{% static 'PNMO_media/photoBlock.svg' %}" alt="">
+                </div>
+                <div class="course-info-container">
+                    <div class="course-name-container">
+                        <h3>Course name</h3>
+                    </div>
+                    <div class="course-desc">
+                        <p>Course desc</p>
+                    </div>
+                    <div class="course-difficulty-spec-container">
+                        <div class="course-diff-container diff-profile">
+                            <p>Difficulty</p>
+                        </div>
+                        <div class="course-spec-container spec-profile">
+                            <p>Specialization</p>
+                        </div>
+                    </div>
+                    <div class="course-credit-container credit-profile">
+                        <p>Credit type</p>
+                    </div>
+                </div>
+                <div class="course-continue-progress-container">
+                    <div class="progress-title-container">
+                        <p class="course-progress-text">Course progress</p>
+                    </div>
+                    <div class="progress-num-container">
+                        <h3 class="progress-num">63%</h3>
+                    </div>
+                    <div class="course-link-container">
+                        <a href="#" class="btn btn-info btn-course-detail btn-user-courses">Перейти к курсу</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="user-courses-container d-flex align-items-center flex-column">
+            <div class="user-courses-grid-container">
+                <div class="course-photo-container">
+                    <img src="{% static 'PNMO_media/photoBlock.svg' %}" alt="">
+                </div>
+                <div class="course-info-container">
+                    <div class="course-name-container">
+                        <h3>Course name</h3>
+                    </div>
+                    <div class="course-desc">
+                        <p>Course desc</p>
+                    </div>
+                    <div class="course-difficulty-spec-container">
+                        <div class="course-diff-container diff-profile">
+                            <p>Difficulty</p>
+                        </div>
+                        <div class="course-spec-container spec-profile">
+                            <p>Specialization</p>
+                        </div>
+                    </div>
+                    <div class="course-credit-container credit-profile">
+                        <p>Credit type</p>
+                    </div>
+                </div>
+                <div class="course-continue-progress-container">
+                    <div class="progress-title-container">
+                        <p class="course-progress-text">Course progress</p>
+                    </div>
+                    <div class="progress-num-container">
+                        <h3 class="progress-num">63%</h3>
+                    </div>
+                    <div class="course-link-container">
+                        <a href="#" class="btn btn-info btn-course-detail btn-user-courses">Перейти к курсу</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-xxl user-courses user-certificates">
+    <div class="user-courses-wrapper user-certificates-wrapper" id="certificates-wrapper">
+        <div class="certificate-dropdown-container">
+            <div class="certificate-info">
+                <h3 class="certificate-course-name">Certificate - Course Name</h3>
+                <p class="certificate-course-desc">Short course description</p>
+            </div>
+            <button class="dropdown-btn" onclick="toggleText('extra-text1')"></button>
+            <div id="extra-text1" class="dropdown-text hidden">
+                This is the additional portion of text that appears when you click the button.
+            </div>
+        </div>
+        <hr class="custom-hr">
+        <div class="certificate-dropdown-container">
+            <div class="certificate-info">
+                <h3 class="certificate-course-name">Certificate - Course Name</h3>
+                <p class="certificate-course-desc">Short course description</p>
+            </div>
+            <button class="dropdown-btn" onclick="toggleText('extra-text2')"></button>
+            <div id="extra-text2" class="dropdown-text hidden">
+                This is the additional portion of text that appears when you click the button.
+            </div>
+        </div>
+        <hr class="custom-hr">
+        <div class="certificate-dropdown-container">
+            <div class="certificate-info">
+                <h3 class="certificate-course-name">Certificate - Course Name</h3>
+                <p class="certificate-course-desc">Short course description</p>
+            </div>
+            <button class="dropdown-btn" onclick="toggleText('extra-text3')"></button>
+            <div id="extra-text3" class="dropdown-text hidden">
+                This is the additional portion of text that appears when you click the button.
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="footer-wrapper profile-footer">
+        <div class="footer-content-container container-xxl">
+            <div class="footer-links-container">
+                <div class="footer-title-container">
+                    <h2 class="footer-title-text">
+                        Платформа Непрерывного
+                        Медицинского Образования
+                    </h2>
+                </div>
+                <div class="footer-links-column-1">
+                    <a href="#" class="text-decoration-none text-reset footer-link">Курсы</a>
+                    <a href="#" class="text-decoration-none text-reset footer-link">Форум и чат</a>
+                    <a href="#" class="text-decoration-none text-reset footer-link">Контакты</a>
+                </div>
+                <div class="footer-links-column-2">
+                    <a href="#" class="text-decoration-none text-reset footer-link">Личный кабинет</a>
+                    <a href="#" class="text-decoration-none text-reset footer-link">Администрирование</a>
+                    <a href="#" class="text-decoration-none text-reset footer-link">О нас</a>
+                </div>
+                <div class="footer-links-column-2">
+                    <a href="#" class="text-decoration-none text-reset footer-link">Регистрация</a>
+                    <a href="#" class="text-decoration-none text-reset footer-link">Войти</a>
+                    <a href="#" class="text-decoration-none text-reset footer-link">Техподдержка</a>
+                </div>
+            </div>
+            <div class="footer-copyright-container">
+                <p class="copyright-text text-reset copyright-profile">
+                    © 2024 Центрально азиатский институт дополнительного медицинского образования
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}
+{% block extrascripts %}
+<script>
+    function toggleText(id) {
+    var text = document.getElementById(id);
+    if (text.classList.contains("hidden")) {
+        text.classList.remove("hidden");
+    } else {
+        text.classList.add("hidden");
+    }
+    adjustContainerHeight()
+}
+function adjustContainerHeight() {
+    var container = document.getElementById("certificates-wrapper");
+    var dropdowns = document.getElementsByClassName("dropdown-text");
+    var totalHeight = 0;
+
+    for (var i = 0; i < dropdowns.length; i++) {
+        if (!dropdowns[i].classList.contains("hidden")) {
+            totalHeight += dropdowns[i].scrollHeight + 20;
+        }
+    }
+
+    totalHeight += 3 * 40; 
+
+    container.style.height = (totalHeight + 322) + "px"; 
+}
+</script>
+{% endblock %}

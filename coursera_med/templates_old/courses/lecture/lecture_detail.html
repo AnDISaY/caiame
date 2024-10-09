@@ -1,0 +1,107 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ object.name }}{% endblock %}
+
+{% block content %}
+<style>
+.vjs-big-play-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0px !important;
+    background-color: transparent !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-image: url("{% static 'PNMO_media/icon-play.svg' %}") !important;
+    background-repeat: no-repeat !important;
+    background-size: 48px !important;
+    background-position: 50% !important;
+    border: none !important;
+    box-shadow: none !important;
+    &:before {
+    content: "";
+    display: none;
+    }
+    &:hover {
+    background-color: transparent;
+    opacity: .7;
+    }
+}
+</style>
+<section class="lecture">
+    <link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet"/>
+    <div class="lecture__container container">
+        <div class="lecture__title-block">
+            <div class="lecture__title">{{ object.name }}</div>
+            <div class="lecture__text">{{ object.text }}</div>
+        </div>
+        {% if object.video %}
+        <div class="lecture__video-block">
+           <div class="lecture__video">
+                <video
+                    id="my-video"
+                    class="video-js"
+                    controls
+                    preload="auto"
+                    data-setup="{}">
+                    <source src="{{ object.video.url }}" type="video/mp4" />
+                    <p class="vjs-no-js">
+                    <a href="https://videojs.com/html5-video-support/" target="_blank"></a>
+                    </p>
+                </video>
+           </div>
+           {% if object.status == "incompleted" %}
+           <form  method="post" id="my-form">
+                {% csrf_token %}
+                <button type="submit" class="lecture__status-btn">Пометить как выполненное</button>
+            </form>
+           <div class="lecture__status-btn2" style="display: none;">
+                <span>Выполнено</span>
+           </div>
+           {% else %}
+           <div class="lecture__status-btn2" style="display: flex;">
+                <span>Выполнено</span>
+           </div>
+           {% endif %}
+        </div>
+        {% else %}
+        <div class="lecture__pdf-block">
+            <a class="lecture__pdf-file" href="{{ object.pdf.url }}" target="_blank">
+                <div class="lecture__pdf-content">
+                    <div class="lecture__pdf-image"><img src="{% static 'PNMO_media/icon-pdf.svg' %}" alt="PDF icon"></div>
+                    <div class="lecture__pdf-text">
+                        <div class="lecture__pdf-title">{{ object.name }}</div>
+                        <div class="lecture__pdf-subtext">PDF</div>
+                    </div>
+                </div>
+                <div class="lecture__pdf-buttons">
+                    <div class="lecture__pdf-button">Перейти к файлу</div>
+                    {% if object.status == "incompleted" %}
+                    <form  method="post" id="my-form">
+                        {% csrf_token %}
+                        <button type="submit" class="lecture__pdf-button lecture__status-btn">Пометить как выполненное</button>
+                    </form>
+                    <div class="lecture__pdf-button lecture__status-btn2" style="display: none;">Выполнено</div>
+                    {% else %}
+                    <div class="lecture__pdf-button lecture__status-btn2" style="display: flex;">Выполнено</div>
+                    {% endif %}
+                </div>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+<script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous">
+</script>
+<script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script>
+<script src="{% static 'js/statusBtn.js' %}"></script>
+{% endblock %}
+

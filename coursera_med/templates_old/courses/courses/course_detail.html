@@ -1,0 +1,301 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}{{ object.name }}{% endblock %}
+{% block content %}
+<div class="course-overview-container">
+    <img src="{{ object.image.url }}" alt="" class="course-overview-image">
+    <div class="course-overview-info-container container-xxl">
+        <div class="course-overview-text-container">
+            <p class="course-author-text">Издатель: КГТУ им. Раззакова</p>
+            <h3 class="course-name-text">{{ object.name }}</h3>
+        </div>
+        <div class="course-filter-container course-page-main-info-container">
+            <div class="course-filter-title-container course-page-diff-container">
+                <h3 class="course-filter-title-text course-page-diff-title">Средняя</h3>
+                <p class="course-page-diff-text">— сложность курса</p>
+            </div>
+            <form method="post" id="filter-form">
+                <div class="form-row select course-page-form-row">
+                    <div class="col select select-wrapper course-page-price-container">
+                        <h3 class="course-page-price-title">150 сом</h3>
+                        <p class="course-page-price-text">— стоимость 1 часа</p>
+                    </div>
+                    <div class="col select select-wrapper course-page-length-container">
+                        <h3 class="course-page-length-title">{{ object.duration }} часов</h3>
+                        <p class="course-page-length-text">— длительность обучения</p>
+                    </div>
+                    <div class="col select select-wrapper course-page-lang-container">
+                        <h3 class="course-page-lang-title">{{ object.language }}</h3>
+                        <p class="course-page-lang-text">— язык курса</p>
+                    </div>
+                    <div class="col select select-wrapper credit-type-wrapper course-page-reg-btn-container">
+                        {% if relation_is_exists %}
+                        <div class="btn btn-info course-page-reg-btn">
+                            <p class="reg-btn-text">Курс уже приобретен</p>
+                        </div>
+                        {% else %}
+                        <form method="post">{% csrf_token %}
+                            <button type="submit" class="btn btn-info course-page-reg-btn">
+                                <p class="reg-btn-text">Зарегистрироваться<br> на курс</p>
+                            </button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container-xxl modules-info-text-container">
+    <div class="modules-info-wrapper">
+        <div class="modules-title-container">
+            <h3 class="modules-title">
+                Основная информация
+            </h3>
+        </div>
+        <div class="modules-text-1-container">
+            <p class="modules-text-1">
+                {{ object.description }}
+            </p>
+        </div>
+        <div class="modules-text-2-container">
+            <p class="modules-text-2">
+                {{ object.text }}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container-xxl modules-container">
+    <div class="modules-wrapper">
+        {% for module in object.modules.all %}
+        <a href="{% url 'courses:module-detail' course_pk=object.id pk=module.id %}" class="module-object certificate-dropdown-container module-first">
+            <div class="certificate-info module-info">
+                <h3 class="certificate-course-name module-number ">Модуль #001</h3>
+                <p class="certificate-course-desc module-desc">Short module description</p>
+            </div>
+            <div class="module-status-container">
+                <div class="module-text-container">
+                    <p class="module-status-text">
+                        В процессе
+                    </p>
+                </div>
+                <div class="module-link-container">
+                    <button class="dropdown-btn module-btn">
+                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">
+                    </button>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+        <hr class="custom-hr modules-hr">
+<!--        <div class="module-object certificate-dropdown-container">-->
+<!--            <div class="certificate-info module-info">-->
+<!--                <h3 class="certificate-course-name module-number">Модуль #002</h3>-->
+<!--                <p class="certificate-course-desc module-desc">Short module description</p>-->
+<!--            </div>-->
+<!--            <div class="module-status-container">-->
+<!--                <div class="module-text-container">-->
+<!--                    <p class="module-status-text module-not-started">-->
+<!--                        Не начат-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--                <div class="module-link-container">-->
+<!--                    <button class="dropdown-btn module-btn">-->
+<!--                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <hr class="custom-hr modules-hr">-->
+<!--        <div class="module-object certificate-dropdown-container">-->
+<!--            <div class="certificate-info module-info">-->
+<!--                <h3 class="certificate-course-name module-number">Модуль #003</h3>-->
+<!--                <p class="certificate-course-desc module-desc">Short module description</p>-->
+<!--            </div>-->
+<!--            <div class="module-status-container">-->
+<!--                <div class="module-text-container">-->
+<!--                    <p class="module-status-text module-not-started">-->
+<!--                        Не начат-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--                <div class="module-link-container">-->
+<!--                    <button class="dropdown-btn module-btn">-->
+<!--                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <hr class="custom-hr modules-hr">-->
+<!--        <div class="module-object certificate-dropdown-container">-->
+<!--            <div class="certificate-info module-info">-->
+<!--                <h3 class="certificate-course-name module-number module-complete">Модуль #004</h3>-->
+<!--                <p class="certificate-course-desc module-desc module-complete">Short module description</p>-->
+<!--            </div>-->
+<!--            <div class="module-status-container">-->
+<!--                <div class="module-text-container">-->
+<!--                    <p class="module-status-text module-complete">-->
+<!--                        Завершено-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--                <div class="module-link-container">-->
+<!--                    <button class="dropdown-btn module-btn">-->
+<!--                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <hr class="custom-hr modules-hr">-->
+<!--        <div class="module-object certificate-dropdown-container">-->
+<!--            <div class="certificate-info module-info">-->
+<!--                <h3 class="certificate-course-name module-number module-complete">Модуль #005</h3>-->
+<!--                <p class="certificate-course-desc module-desc module-complete">Short module description</p>-->
+<!--            </div>-->
+<!--            <div class="module-status-container">-->
+<!--                <div class="module-text-container">-->
+<!--                    <p class="module-status-text module-complete">-->
+<!--                        Завершено-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--                <div class="module-link-container">-->
+<!--                    <button class="dropdown-btn module-btn">-->
+<!--                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <hr class="custom-hr modules-hr">-->
+<!--        <div class="module-object certificate-dropdown-container">-->
+<!--            <div class="certificate-info module-info">-->
+<!--                <h3 class="certificate-course-name module-number ">Модуль #006</h3>-->
+<!--                <p class="certificate-course-desc module-desc">Short module description</p>-->
+<!--            </div>-->
+<!--            <div class="module-status-container">-->
+<!--                <div class="module-text-container">-->
+<!--                    <p class="module-status-text">-->
+<!--                        В процессе-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--                <div class="module-link-container">-->
+<!--                    <button class="dropdown-btn module-btn">-->
+<!--                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <hr class="custom-hr modules-hr">-->
+<!--        <div class="module-object certificate-dropdown-container module-last">-->
+<!--            <div class="certificate-info module-info">-->
+<!--                <h3 class="certificate-course-name module-number">Модуль #007</h3>-->
+<!--                <p class="certificate-course-desc module-desc">Short module description</p>-->
+<!--            </div>-->
+<!--            <div class="module-status-container">-->
+<!--                <div class="module-text-container">-->
+<!--                    <p class="module-status-text module-not-started">-->
+<!--                        Не начат-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--                <div class="module-link-container">-->
+<!--                    <button class="dropdown-btn module-btn">-->
+<!--                        <img src="{% static 'PNMO_media/module_arrow.svg' %}" alt="arrow" class="module-arrow-img">-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+</div>
+{% endblock %}
+{% block extrascripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const progress = document.getElementById('progress');
+    const progressThumb = document.getElementById('progress-thumb');
+    const progressValue = document.getElementById('progress-value');
+    const progressPercentage = 69;
+
+    const progress2 = document.getElementById('progress2');
+    const progressValue2 = document.getElementById('progress-value2');
+    const progressPercentage2 = 69;
+
+    const progress3 = document.getElementById('progress3');
+    const progressValue3 = document.getElementById('progress-value3');
+    const progressPercentage3 = 31;
+
+    const progress4 = document.getElementById('progress4');
+    const progressValue4 = document.getElementById('progress-value4');
+    const progressPercentage4 = 0;
+
+    const progress5 = document.getElementById('progress5');
+    const progressValue5 = document.getElementById('progress-value5');
+    const progressPercentage5 = 0;
+
+    const progress6 = document.getElementById('progress6');
+    const progressValue6 = document.getElementById('progress-value6');
+    const progressPercentage6 = 0;
+
+    progress.style.width = progressPercentage + '%';
+    progressThumb.style.left = progressPercentage + '%';
+    progressValue.style.left = progressPercentage - 7.3 + '%';
+    progressValue.innerText = progressPercentage + '%';
+    progressValue.style.marginBottom = '3rem';
+
+    progress2.style.width = progressPercentage2 + '%';
+    progressValue2.style.left = 25 + '%';
+    progressValue2.innerText = progressPercentage2 + '%';
+
+    progress3.style.width = progressPercentage3 + '%';
+    progressValue3.style.left = 25 + '%';
+    progressValue3.innerText = progressPercentage3 + '%';
+
+    progress4.style.width = progressPercentage4 + '%';
+    progressValue4.style.left = 25 + '%';
+    progressValue4.innerText = progressPercentage4 + '%';
+
+    progress5.style.width = progressPercentage5 + '%';
+    progressValue5.style.left = 25 + '%';
+    progressValue5.innerText = progressPercentage5 + '%';
+
+    progress6.style.width = progressPercentage6 + '%';
+    progressValue6.style.left = 25 + '%';
+    progressValue6.innerText = progressPercentage6 + '%';
+});
+
+function toggleText(id, id2) {
+    var text = document.getElementById(id);
+    var dropdown = document.getElementById(id2)
+    var flipped = false
+    if (text.classList.contains("hidden")) {
+        text.classList.remove("hidden");
+    } else {
+        text.classList.add("hidden");
+    }
+    if (dropdown.classList.contains("not-flipped")) {
+
+        dropdown.classList.remove("not-flipped");
+        dropdown.classList.add("flipped");
+
+    } else if(dropdown.classList.contains("flipped")){
+
+        dropdown.classList.remove("flipped");
+        dropdown.classList.add("not-flipped");
+
+    }
+    adjustContainerHeight()
+}
+function adjustContainerHeight() {
+    var container = document.getElementById("common-questions-wrapper");
+    var dropdowns = document.getElementsByClassName("dropdown-text");
+    var totalHeight = 0;
+
+    for (var i = 0; i < dropdowns.length; i++) {
+        if (!dropdowns[i].classList.contains("hidden")) {
+            totalHeight += dropdowns[i].scrollHeight + 20;
+        }
+    }
+
+    totalHeight += 3 * 40;
+
+    container.style.height = (totalHeight + 332) + "px";
+}
+</script>
+{% endblock %}

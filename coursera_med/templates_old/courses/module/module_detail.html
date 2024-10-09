@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+
+{% block content %}
+<div class="module-container">
+    {{ object.name }}<br>
+    {{ object.description }}<br>
+    {{ object.sequence_number }}<br>
+    {% for l in object.lectures.all %}
+    <a href="{% url 'courses:lecture-detail' l.id %}">
+        {{ l.name }}<br>
+        {{ l.type }}<br>
+        {{ l.duration }} min<br>
+    </a><br>
+    {% endfor %}
+</div>
+{% endblock %}
+

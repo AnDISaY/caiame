@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Войти в аккаунт{% endblock %}
+
+{% block content %}
+<section class="login">
+    <div class="login__container container">
+        <div class="login__title"><span>Укажите логин и пароль чтобы войти</span></div>
+        <form method="post" class="login__form">
+            {% csrf_token %}
+            {{ form.username }}
+            {{ form.password }}
+            <div class="login__under-block">
+                <button type="submit" class="login__form__btn">Продолжить</button>
+            </div>
+            {{ form.errors }}
+        </form>
+    </div>
+</section>
+{% endblock %}

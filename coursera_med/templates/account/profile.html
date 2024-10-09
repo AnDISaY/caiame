@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Лчиный кабинет{% endblock %}
+
+{% block content %}
+<section class="profile">
+    <div class="profile__container container">
+        <div class="profile__title">Мой профиль</div>
+        <div class="profile__description">Управление вашим профилем и курсами. Отслеживайте прогресс обучения и получайте сертификаты</div>
+        <a href="{% url 'logout' %}" class="profile__btn">Выйти</a>
+    </div>
+</section>
+<section class="user-courses">
+    <div class="user-courses__container container">
+        <div class="user-courses__wrapper">
+            {% if user_courses %}
+            <div class="user-courses__title">Мои курсы</div>
+            <div class="user-courses__cards">
+                {% for uc in user_courses %}
+                <div class="user-courses__card">
+                    <div class="user-courses__card__content-block">
+                        <a href="{% url 'course-detail' uc.course.pk %}" class="user-courses__card__image"><img src="{{ uc.course.image.url }}" alt="Course image"></a>
+                        <div class="user-courses__card__content">
+                            <div class="user-courses__card__text">
+                                <a href="{% url 'course-detail' uc.course.pk %}" class="user-courses__card__title">{{ uc.course.name }}</a>
+                                <div class="user-courses__card__description">{{ uc.course.short_description }}</div>
+                            </div>
+                            <div class="user-courses__card__divider"></div>
+                            <div class="user-courses__card__tags">
+                                <div class="user-courses__card__tag">{{ uc.course.get_difficulty_display }}</div>
+                                <div class="user-courses__card__tag">{{ uc.course.get_specialization_display }}</div>
+                                <div class="user-courses__card__tag">{{ uc.course.get_credit_type_display }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-courses__card__progress-block">
+                        <div class="user-courses__card__progress">
+                            <span class="user-courses__card__progress__text">Прогресс курса</span>
+                            <span class="user-courses__card__progress__percent">{{ completion_percent }}%</span>
+                        </div>
+                        <a href="{% url 'course-detail' uc.course.pk %}" class="user-courses__card__btn">Перейти к курсу</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="user-courses__empty">У вас еще нет курсов</div>
+            {% endif %}
+        </div>
+</section>
+{% endblock %}

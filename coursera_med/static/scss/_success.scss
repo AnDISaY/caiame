@@ -1,0 +1,98 @@
+.success {
+    height: -o-calc(100vh - 179px); /* opera */
+    height: -webkit-calc(100vh - 179px); /* google, safari */
+    height: -moz-calc(100vh - 179px); /* firefox */
+    margin-top: 100px;
+
+    @media screen and (max-width: $md1) {
+        height: -o-calc(100vh - 159px); /* opera */
+        height: -webkit-calc(100vh - 159px); /* google, safari */
+        height: -moz-calc(100vh - 159px); /* firefox */
+        margin-top: 88px;
+    }
+
+    @media screen and (max-width: $md2) {
+        height: -o-calc(100vh - 140px); /* opera */
+        height: -webkit-calc(100vh - 140px); /* google, safari */
+        height: -moz-calc(100vh - 140px); /* firefox */
+        margin-top: 77px;
+    }
+
+    @media screen and (max-width: $md3) {
+        height: auto;
+        margin: 90px 0px 262px;
+    }
+
+    @media screen and (max-width: $md4) {
+        margin: 18.75vw 0px 54.688vw;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 28px;
+        margin-bottom: 30px;
+
+        @media screen and (max-width: $md1) {
+            font-size: 24.5px;
+            margin-bottom: 26px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 21.5px;
+            margin-bottom: 22.5px;
+        }
+
+        @media screen and (max-width: $md3) {
+            text-align: center;
+            font-size: 24px;
+            max-width: 200px;
+            margin-bottom: 30px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 5vw;
+            max-width: 44vw;
+            margin-bottom: 6.25vw;
+        }
+    }
+
+    &__btn {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 140%;
+        color: #fff;
+        padding: 18px 30px;
+        background-color: #3C3C3C;
+        border-radius: 22px;
+
+        @media screen and (max-width: $md1) {
+            font-size: 10.5px;
+            padding: 16px 26px;
+            border-radius: 19px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 9px;
+            padding: 14px 23px;
+            border-radius: 17px;
+        }
+
+        @media screen and (max-width: $md3) {
+            font-size: 12px;
+            padding: 15px 24px;
+            border-radius: 19.5px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 2.5vw;
+            padding: 3.125vw 5vw;
+            border-radius: 4.063vw;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block title %}create course{% endblock %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.name }}<br>
+    {{ form.description }}<br>
+    {{ form.image }}<br>
+    {{ form.language }}<br>
+    {{ form.duration }}<br>
+    <button type="submit">Отправить</button>
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block title %}create module{% endblock %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.course }}<br>
+    {{ form.name }}<br>
+    {{ form.description }}<br>
+    {{ form.sequence_number }}<br>
+    <button type="submit">Отправить</button>
+</form>
+{% endblock %}

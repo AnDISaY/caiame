@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ quiz.name }}{% endblock %}
+
+{% block content %}
+{{ quiz.name }}
+<form id="quiz-form" method="post">
+    {% csrf_token %}
+    <div id="quiz-box"></div>
+    <button type="submit">submit</button>
+</form>
+
+{% endblock %}
+
+{% block script %}
+
+    
+{% endblock %}
+
+<script>
+const quizBox = document.getElementById('quiz-box')
+const url = window.location.href
+
+$.ajax({
+    type: 'GET',
+    url: `${url}data`,
+    success: function(response) {
+        const data = response.data
+        data.forEach(el => {
+            for (const [question, answers] of Object.entries(el)){
+                quizBox.innerHTML += `
+                    <hr>
+                    <div>
+                        ${question}
+                    </div>
+                `
+                answers.forEach(answer =>{
+                    quizBox.innerHTML += `
+                        <div>
+                            <input type="radio" class="ans" id="${question}-${answer}" name="${question}" value="${answer}">
+                            <label for="${question}">${answer}</label>
+                        </div>`})
+            }
+        })
+        const quizForm = document.getElementById("quiz-form")
+        const csrf = document.getElementsByName("csrfmiddlewaretoken")
+
+        const sendData = () => {
+            const elements = [...document.getElementsByClassName("ans")]
+            const data = {}
+            data['csrfmiddlewaretoken'] = csrf[0].value
+            elements.forEach(el => {
+                if (el.checked) {
+                    data[el.name] = el.value
+                } else {
+                    if (!data[el.name]) {
+                        data[el.name] = null
+                    }
+                }
+            })
+
+            $.ajax({
+                type: 'POST',
+                url: `${url}save/`,
+                data: data,
+                success: function(response) {
+                    const results = response.results
+                    console.log(results)
+                    quizForm.classList.add('not-visible')
+                },
+                error: function(error) {
+                    console.log(error)
+                }
+            })
+        }
+
+
+        quizForm.addEventListener('submit', e => {
+            e.preventDefault()
+
+            sendData()
+        })
+    },
+    error: function(error) {
+        console.log(error)},
+})
+</script>

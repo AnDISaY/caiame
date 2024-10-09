@@ -1,0 +1,91 @@
+//<ШРИФТЫ>
+
+//<Подключение>
+// @font-face {
+//     font-family: "Gilroy", sans-serif;
+//     src: url("/localstatic/fonts/medium/Gilroy-Medium.woff2");
+// }
+
+// @font-face {
+//     font-family: "Neue Machina", sans-serif;
+//     src: url("/localstatic/fonts/medium/NeueMachina-Medium.woff2");
+// }
+//</Подключение>
+
+//</ШРИФТЫ>
+
+//</ПЕРЕМЕННЫЕ>
+$minWidth: 320px;
+$maxWidth: 1440px;
+$maxWidthContainer: 1240px;
+$md1: $maxWidthContainer + 24px;
+$md2: 1110px;
+$md3: 980px;
+$md4: 480px;
+// $md4: 479.98;
+//<ПЕРЕМЕННЫЕ>
+
+//<ОБНУЛЕНИЕ>
+
+body {
+    color: #3C3C3C;
+    background-color: #F3F7FA;
+    margin: 0px 0px 0px 0px;
+    font-family: "Manrope", sans-serif;
+    font-weight: 500;
+    overflow-x: hidden;
+    letter-spacing: -0.48px;
+
+    @media screen and (max-width: $md3) {
+        letter-spacing: -0.16px;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #3C3C3C;
+    margin: 0px;
+}
+
+h1, h2 {
+    margin: 0px;
+}
+
+button {
+    border: 0px;
+}
+
+.desktop {
+    @media screen and (max-width: $md3) {
+        display: none;
+    }
+}
+
+//</ОБНУЛЕНИЕ>
+
+//<ОБЩИЕ КЛАССЫ>
+@import "_sample";
+//</ОБЩИЕ КЛАССЫ>
+
+//<HEADER>
+@import "_header";
+//</HEADER>
+
+//<HTML>
+@import "_home";
+
+@import "_signup";
+@import "_success";
+@import "_login";
+@import "_profile";
+
+@import "_course";
+@import "_module";
+@import "_lecture";
+//</HTML>
+
+//<FOOTER>
+@import "_footer";
+//</FOOTER>
+
+

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+<head>
+    <title>Авторизация</title>
+</head>
+{% block content %}
+<nav class="navbar navbar-expand-xxl fixed-top bg-white">
+    <div class="container-xxl">
+        <a href="{% url 'home' %}" class="navbar_brand" >
+            <img src="{% static 'PNMO_media/logo_home_1.svg' %}" alt="Home">
+        </a>
+        <p class="nav-link reg-page-title">Авторизация</p>
+        <ul class="navbar-nav">
+            <li class="nav-item signin-nav">
+                <a href="{% url 'signup' %}" class="nav-link">Регистрация</a>
+            </li>
+            <li class="nav-item divider">|</li>
+            <li class="nav-item reg-nav">
+                <a href="{% url 'home' %}" class="nav-link">Вернуться на главную</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container-xxl registration-container">
+    <h3 class="registration-title-text">Войдите</h3>
+
+    <form method='post'> {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="btn btn-secondary login_btn" value="Войти">
+    </form>
+</div>
+
+
+{% endblock %}
+{% block extrascripts %}
+
+{% endblock %}

@@ -1,0 +1,176 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}Платформа Непрерывного Медицинского Образования{% endblock %}
+{% block content %}
+<div class="second-part-home">
+    <div class="container-xxl container-welcome">
+        <div class="container-main-title">
+            <h2 class="text-secondary ">Добро пожаловать на</h2>
+            <h1 class="text-primary text-main-title">Платформу Непрерывного Медицинского Образования</h1>
+        </div>
+        <div class="grid-cont-second">
+            <div class="item1">
+                <p class="item1-text">
+                    Платформа НМО — ваш надежный помощник в обучении и повышении квалификации.
+                    Зарегистрируйтесь или войдите, чтобы начать обучение, которое поможет вам
+                    расти профессионально и расширять вашу карьеру.
+                </p>
+                <img src="{% static 'PNMO_media/microscope_home.svg' %}" alt="microscope">
+            </div>
+            <div class="item2">'
+                {% if not user.is_authenticated %}
+                <a href="{% url 'login' %}" style="text-decoration: none;">
+                    <div class="item2-text-cont">
+                        <h2 class="item2-text">Войти</h2>
+                    </div>
+                    <div class="item2-arrow">
+                        <img src="{% static 'PNMO_media/arrow_home.svg' %}" alt="Arrow">
+                    </div>
+                </a>
+                {% else %}
+                <a href="{% url 'profile' %}" style="text-decoration: none;">
+                    <div class="item2-text-cont">
+                        <h2 class="item2-text">Профиль</h2>
+                    </div>
+                    <div class="item2-arrow">
+                        <img src="{% static 'PNMO_media/arrow_home.svg' %}" alt="Arrow">
+                    </div>
+                </a>
+                {% endif %}
+            </div>
+            <div class="item3">
+                <a href="#courseGrid" style="text-decoration: none;">
+                    <div class="item3-text-cont">
+                        <h2 class="item3-text">Изучить курсы</h2>
+                    </div>
+                    <div class="item3-arrow">
+                        <img src="{% static 'PNMO_media/arrow_home.svg' %}" alt="Arrow">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="third-part-home">
+    <div class="container-xxl container-course-search d-flex align-items-center flex-column">
+        <div class="container-third-part-text">
+            <h2 class="course-list-title">Список курсов</h2>
+            <p class="course-list-desc">
+                Изучите наш широкий каталог курсов, специально разработанных для медицинских специалистов.
+                Вы можете фильтровать курсы по специализации, сложности и типу кредитования, чтобы найти именно то, что вам нужно.
+            </p>
+        </div>
+<!--        <div class="course-filter-container">-->
+<!--            <div class="course-filter-title-container d-flex align-items-center">-->
+<!--                <h3 class="course-filter-title-text">Фильтры:</h3>-->
+<!--            </div>-->
+<!--            <form method="get" id="filter-form">-->
+<!--                <div class="form-row select">-->
+<!--                    <div class="col select select-wrapper">-->
+<!--                        {{ form.specialization }}-->
+<!--                        <img src="{% static 'PNMO_media/arrow-dropdown.svg' %}" alt="arrow" class="filters-dropdown-arrow">-->
+<!--                    </div>-->
+<!--                    <div class="col select select-wrapper">-->
+<!--                        {{ form.difficulty }}-->
+<!--                        <img src="{% static 'PNMO_media/arrow-dropdown.svg' %}" alt="arrow" class="filters-dropdown-arrow">-->
+<!--                    </div>-->
+<!--                    <div class="col select select-wrapper credit-type-wrapper">-->
+<!--                        {{ form.credit_type }}-->
+<!--                        <img src="{% static 'PNMO_media/arrow-dropdown.svg' %}" alt="arrow" class="filters-dropdown-arrow">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+        <div class="container-course-cards d-flex justify-content-center align-items-center flex-column" id="courses-container">
+            <div class="example">
+                <div class="courses-grid-container" id="courseGrid">
+                    {% if courses %}
+                        {% for course in courses %}
+                        <div class="course-card-container">
+                            <div class="course-attr-container">
+                                    <div class="course-diff-container d-flex justify-content-center align-items-center text-capitalize">
+                                        <p class="course-diff-text">{{course.language}}</p>
+                                    </div>
+                                    <div class="course-spec-container d-flex justify-content-center align-items-center text-capitalize">
+                                        <p class="course-spec-text">{{course.duration}} часов</p>
+                                    </div>
+                                </div>
+                            <div class="course-photo-container">
+                                <a href="{% url 'courses:course-detail' pk=course.id %}">
+                                    <img src="{{ course.image.url }}" alt="Фото курса">
+                                </a>
+                            </div>
+                            <div class="course-text-container">
+                                <div class="course-title-container">
+                                    <h3 class="course-title-text"> {{ course.name }}</h3>
+                                </div>
+                                <div class="course-desc-container">
+                                    <p class="course-desc-text">{{ course.description|truncatechars:70 }}</p>
+                                </div>
+                            </div>
+                            <div class="course-detail-container">
+                                <a href="{% url 'courses:course-detail' pk=course.id %}" class="btn btn-info btn-course-detail">Подробнее</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="courses-link-container text-center">
+                    <a href="#" class="courses-link-text" style="text-decoration: none; color: #454545;">Посмотреть больше курсов</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-xxl fourth-part-home" id="id_fourth_part_home">
+    <div class="details-text-container">
+        <div class="details-title-container">
+            <h2 class="details-title-org">О нашей платформе</h2>
+        </div>
+
+        <div class="details-desc-container">
+            <div class="desc-1-container">
+                <p class="desc-1-text">
+                    Платформа НМО предлагает медицинским профессионалам доступ
+                    к современным и актуальным образовательным ресурсам.
+                </p>
+            </div>
+            <div class="desc-2-container">
+                <p class="desc-2-text">
+                    Наши курсы разработаны ведущими экспертами в различных
+                    медицинских областях и обеспечивают повышение квалификации,
+                    развитие навыков и углубление знаний.
+                </p>
+            </div>
+            <div class="desc-3-container">
+                <p class="desc-3-text">
+                    Мы стремимся поддерживать высокий уровень медицинской практики,
+                    предоставляя качественное обучение, удобное и доступное в любое время.
+                </p>
+            </div>
+        </div>
+        <div class="details-button-container">
+            <a href="#" class="btn btn-info btn-course-detail btn-org-details">Узнать подробнее</a>
+        </div>
+    </div>
+    <div class="details-image-container d-flex align-items-center">
+        <div class="details-img-particles-container">
+            <img src="{% static 'PNMO_media/particles_home.svg' %}" alt="particles">
+        </div>
+        <div class="details-img-doctor-container">
+            <img src="{% static 'PNMO_media/doctor_home.png' %}" alt="doc" class="details-img-doctor">
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extrascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/JavaScript" src="{%  static 'js/filtering.js' %}"></script>
+
+    <script type="text/JavaScript" src="{%  static 'js/dropdown.js' %}"></script>
+
+    <script type="text/JavaScript" src="{%  static 'js/gridAdjust.js' %}"></script>
+
+    <script type="text/JavaScript" src="{%  static 'js/filterCookies.js' %}"></script>
+{% endblock %}

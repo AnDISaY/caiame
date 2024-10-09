@@ -1,0 +1,43 @@
+.text1 {
+
+}
+
+.container {
+    max-width: $maxWidthContainer;
+    margin: auto;
+
+    @media screen and (max-width: $md1) {
+        max-width: 1088.27px;
+    }
+
+    @media screen and (max-width: $md2) {
+        max-width: 955.46px;
+    }
+
+    @media screen and (max-width: $md3) {
+        max-width: 420px;
+    }
+
+    @media screen and (max-width: $md4) {
+        max-width: 87.5vw;
+    }
+}
+
+// .wrapper {
+//     padding: 50px;
+//     border-radius: 12px;
+
+//     @media screen and (max-width: $md1) {
+//         padding: 31.25px;
+//         border-radius: 7.5px;
+//     }
+
+//     @media screen and (max-width: $md2) {
+//         padding: 18px;
+//     }
+
+//     @media screen and (max-width: $md3) {
+//         padding: 3.75vw;
+//         border-radius: 1.563vw;
+//     }
+// }

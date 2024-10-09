@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Перейти в личный кабинет{% endblock %}
+
+{% block content %}
+<section class="success">
+    <div class="success__container container">
+        <div class="success__title">Отлично, ваш профиль создан!</div>
+        <a href="{% url 'profile' %}" class="success__btn">Перейти на страницу профиля</a>
+    </div>
+</section>
+{% endblock %}

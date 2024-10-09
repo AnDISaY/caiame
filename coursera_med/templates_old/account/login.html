@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Войти в аккаунт{% endblock %}
+
+{% block content %}
+<div class="container-xxl registration-container">
+    <h3 class="registration-title-text">Войдите</h3>
+
+    <form method='post'> {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="btn btn-secondary login_btn" value="Войти">
+    </form>
+</div>
+
+
+{% endblock %}
+{% block extrascripts %}
+<script>
+    window.onload = function() {
+        var usernameChild = document.getElementById('id_username');
+        var password = document.getElementById('id_password');
+        usernameChild.placeholder = "Почта*";
+        password.placeholder = "Пароль*"
+    };
+</script>
+
+{% endblock %}

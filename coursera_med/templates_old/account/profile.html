@@ -1,0 +1,119 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Личный кабинет{% endblock %}
+{% block content %}
+<div class="profile-overview-container container-xxl">
+    <div class="personal-info-container">
+        <div class="edit-btn-container">
+            <button type="button" class="edit-btn">
+                <img src="{% static 'PNMO_media/edit_btn.svg' %}" alt="" class="edit-btn-image">
+            </button>
+        </div>
+        <div class="personal-info-title-container">
+            <h3 class="personal-info-title-text">Личные данные</h3>
+        </div>
+        <div class="personal-photo-container">
+            <img src="{% static 'PNMO_media/doctor_home.png' %}" alt="profile pic" class="personal-photo">
+        </div>
+        <div class="personal-name-container">
+            <h3 class="personal-name-text">{{ user.username }}</h3>
+        </div>
+        <div class="personal-info-update-container d-flex flex-row">
+            <p class="update-text">Обновить данные</p>
+            <img src="{% static 'PNMO_media/updateCircle.svg' %}" alt="circle" class="update-circle">
+        </div>
+    </div>
+    <div class="profile-overview-text-container">
+        <div class="profile-title-container">
+            <h3 class="profile-title-text">Мой профиль</h3>
+        </div>
+        <div class="profile-overview-desc-container">
+            <p class="profile-overview-desc-text">
+                Управление вашим профилем и курсами.
+                Просмотрите и редактируйте свои личные данные,
+                отслеживайте прогресс обучения и получайте сертификаты
+            </p>
+        </div>
+        <div class="profile-logout-btn-container">
+            <a href="{% url 'logout' %}">
+                <input type="button" class="btn btn-secondary profile-logout-btn" value="Выйти">
+            </a>
+        </div>
+    </div>
+</div>
+<div class="container-xxl user-courses">
+    <div class="user-courses-wrapper">
+        {% if user_courses %}
+        <div class="user-courses-title-container">
+            <h3>Мои курсы</h3>
+        </div>
+        {% for uc in user_courses %}
+        <div class="user-courses-container d-flex align-items-center flex-column">
+            <div class="user-courses-grid-container">
+                <div class="course-photo-container">
+                    <a href="{% url 'courses:course-detail' uc.course.id %}">
+                        <img src="{{ uc.course.image.url }}" alt="">
+                    </a>
+                </div>
+                <div class="course-info-container">
+                    <div class="course-name-container">
+                        <h3>{{ uc.course.name }}</h3>
+                    </div>
+                    <div class="course-desc">
+                        <p>{{ uc.course.description|truncatechars:45 }}</p>
+                    </div>
+                    <div class="course-difficulty-spec-container">
+                        <div class="course-diff-container diff-profile">
+                            <p>{{ uc.course.language }}</p>
+                        </div>
+                        <div class="course-credit-container credit-profile">
+                            <p>{{ uc.course.duration }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-continue-progress-container">
+                    <div class="course-link-container">
+                        <a href="{% url 'courses:course-detail' uc.course.id %}" class="btn btn-info btn-course-detail btn-user-courses">Перейти к курсу</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="user-courses-title-container small-course-container">
+            <h3>У вас еще нет курсов</h3>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+{% block extrascripts %}
+<script>
+    function toggleText(id) {
+    var text = document.getElementById(id);
+    if (text.classList.contains("hidden")) {
+        text.classList.remove("hidden");
+    } else {
+        text.classList.add("hidden");
+    }
+    adjustContainerHeight()
+}
+function adjustContainerHeight() {
+    var container = document.getElementById("certificates-wrapper");
+    var dropdowns = document.getElementsByClassName("dropdown-text");
+    var totalHeight = 0;
+
+    for (var i = 0; i < dropdowns.length; i++) {
+        if (!dropdowns[i].classList.contains("hidden")) {
+            totalHeight += dropdowns[i].scrollHeight + 20;
+        }
+    }
+
+    totalHeight += 3 * 40;
+
+    container.style.height = (totalHeight + 322) + "px";
+}
+</script>
+{% endblock %}
+

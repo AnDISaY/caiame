@@ -1,0 +1,508 @@
+.module {
+    margin: 60px 0px 140px;
+
+    @media screen and (max-width: $md1) {
+        margin: 52px 0px 124px;
+    }
+
+    @media screen and (max-width: $md2) {
+        margin: 45px 0px 109px;
+    }
+
+    @media screen and (max-width: $md3) {
+        margin: 52.5px 0px 60px;
+    }
+
+    @media screen and (max-width: $md4) {
+        margin: 10.938vw 0px 12.5vw;
+    }
+
+    &__wrapper {
+        padding: 70px 60px;
+        background-color: #fff;
+        border-radius: 18px;
+
+        @media screen and (max-width: $md1) {
+            padding: 62px 53px;
+            border-radius: 16px;
+        }
+
+        @media screen and (max-width: $md2) {
+            padding: 54px 46px;
+            border-radius: 14px;
+        }
+
+        @media screen and (max-width: $md3) {
+            padding: 0;
+            border-radius: 0;
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            gap: 60px 0px;
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 12.5vw 0px;
+        }
+    }
+
+    &__title-mobile {
+        display: none;
+
+        @media screen and (max-width: $md3) {
+            display: block;
+            font-weight: 700;
+            font-size: 27px;
+            max-width: 350px;
+            margin-bottom: 60px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 5.625vw;
+            max-width: 72vw;
+            margin-bottom: 12.5vw;
+        }
+    }
+
+    &__title-block {
+        padding-bottom: 100px;
+        border-bottom: 1px solid #BEBEBE;
+
+        @media screen and (max-width: $md1) {
+            border-bottom: 0.88px solid #BEBEBE;
+            padding-bottom: 88px;
+        }
+
+        @media screen and (max-width: $md2) {
+            border-bottom: 0.77px solid #BEBEBE;
+            padding-bottom: 77px;
+        }
+
+        @media screen and (max-width: $md3) {
+            border: 0px;
+            padding: 45px 0px 45px 30px;
+            background-color: #fff;
+            border-radius: 9px;
+        }
+
+        @media screen and (max-width: $md4) {
+            padding: 9.375vw 0px 9.375vw 7.5vw;
+            border-radius: 1.875vw;
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 32px;
+        margin-bottom: 32px;
+
+        @media screen and (max-width: $md1) {
+            font-size: 28px;
+            margin-bottom: 28px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+
+        @media screen and (max-width: $md3) {
+            font-size: 24px;
+            margin-bottom: 37px;
+            color: #2178FF;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 5vw;
+            margin-bottom: 7.5vw;
+        }
+    }
+
+    &__description {
+        font-size: 14px;
+        line-height: 180%;
+        max-width: 720px;
+
+        @media screen and (max-width: $md1) {
+            font-size: 12px;
+            max-width: 640px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 11px;
+            max-width: 560px;
+        }
+
+        @media screen and (max-width: $md3) {
+            font-size: 12px;
+            max-width: 335px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 2.5vw;
+            max-width: 70vw;
+        }
+    }
+
+    &__lectures {
+        padding-top: 100px;
+
+        &__lecture + &__lecture {
+            border-top: 1px solid #BEBEBE;
+        }
+
+        @media screen and (max-width: $md1) {
+            padding-top: 88px;
+
+            &__lecture + &__lecture {
+                border-top: 0.88px solid #BEBEBE;
+            }
+        }
+
+        @media screen and (max-width: $md2) {
+            padding-top: 77px;
+
+            &__lecture + &__lecture {
+                border-top: 0.77px solid #BEBEBE;
+            }
+        }
+
+        @media screen and (max-width: $md3) {
+            padding: 0;
+
+            &__lecture + &__lecture {
+                border: 0px;
+            }
+        }
+    }
+
+    &__lectures__title {
+        font-weight: 700;
+        font-size: 24px;
+        color: #2178FF;
+        margin-bottom: 40px;
+
+        @media screen and (max-width: $md1) {
+            font-size: 21px;
+            margin-bottom: 35px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 18.5;
+            margin-bottom: 31px;
+        }
+
+        @media screen and (max-width: $md3) {
+            font-size: 24px;
+            margin-bottom: 31px;
+            color: #3C3C3C;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 5vw;
+            margin-bottom: 6.25vw;
+        }
+    }
+
+    &__cards {
+        a:first-child {
+            padding-top: 0;
+        }
+
+        @media screen and (max-width: $md3) {
+            display: flex;
+            flex-direction: column;
+            gap: 12.5px 0px;
+            
+            a:first-child {
+                padding: 37.5px 0px 37.5px 30px;
+            }
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 2.5vw 0px;
+            
+            a:first-child {
+                padding: 7.813vw 0px 7.813vw 6.25vw;
+            }
+        }
+    }
+
+    &__lectures__lecture {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 56px 20px 56px 0px;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        @media screen and (max-width: $md1) {
+            padding: 50px 18px 50px 0px;
+        }
+
+        @media screen and (max-width: $md2) {
+            padding: 44px 15px 44px 0px;
+        }
+
+        @media screen and (max-width: $md3) {
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            gap: 30px 0px;
+            padding: 37.5px 0px 37.5px 30px;
+            background-color: #fff;
+            border-radius: 9px;
+
+            &:last-child {
+                padding: 37.5px 0px 37.5px 30px;
+            }
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 6.25vw 0px;
+            padding: 7.813vw 0px 7.813vw 6.25vw;
+            border-radius: 1.875vw;
+            
+            &:last-child {
+                padding: 7.813vw 0px 7.813vw 6.25vw;
+            }
+        }
+
+        &__title {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 80%;
+
+            @media screen and (max-width: $md1) {
+                font-size: 14px;
+            }
+
+            @media screen and (max-width: $md2) {
+                font-size: 12px;
+            }
+
+            @media screen and (max-width: $md3) {
+                font-size: 18px;
+            }
+
+            @media screen and (max-width: $md4) {
+                font-size: 12px;
+            }
+        }
+
+        &__content {
+            display: flex;
+            align-items: center;
+
+            @media screen and (max-width: $md3) {
+                gap: 0px 30px;
+            }
+
+            @media screen and (max-width: $md4) {
+                gap: 0px 6.25vw;
+            }
+        }
+
+        &__duration {
+            font-weight: 600;
+            font-size: 10px;
+            line-height: 80%;
+            margin-right: 71px;
+
+            @media screen and (max-width: $md1) {
+                font-size: 9px;
+                margin-right: 62px;
+            }
+
+            @media screen and (max-width: $md2) {
+                font-size: 8px;
+                margin-right: 55px;
+            }
+
+            @media screen and (max-width: $md3) {
+                font-size: 12px;
+                margin: 0;
+            }
+
+            @media screen and (max-width: $md4) {
+                font-size: 2.5vw;
+            }
+        }
+
+        &__file {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-right: 57px;
+            width: 86.18px;
+
+            img {
+                width: 14px;
+                height: 14px;
+            }
+
+            span {
+                font-weight: 600;
+                font-size: 10px;
+                line-height: 80%;
+                color: #2178FF;
+            }
+
+            @media screen and (max-width: $md1) {
+                margin-right: 50px;
+                width: 79px;
+
+                img {
+                    width: 12px;
+                    height: 12px;
+                }
+
+                span {
+                    font-size: 9px;
+                }
+            }
+
+            @media screen and (max-width: $md2) {
+                margin-right: 43px;
+                width: 70px;
+
+                img {
+                    width: 11px;
+                    height: 11px;
+                }
+
+                span {
+                    font-size: 8px;
+                }
+            }
+
+            @media screen and (max-width: $md3) {
+                margin: 0px;
+                gap: 0px 9px;
+                width: auto;
+
+                img {
+                    width: 15px;
+                    height: 15px;
+                }
+
+                span {
+                    font-size: 12px;
+                }
+            }
+
+            @media screen and (max-width: $md4) {
+                margin: 0px;
+                gap: 0px 1.875vw;
+                width: auto;
+
+                img {
+                    width: 3.125vw;
+                    height: 3.125vw;
+                }
+
+                span {
+                    font-size: 2.5vw;
+                }
+            }
+        }
+
+        .center-file {
+            display: flex;
+            justify-content: center;
+        }
+
+        &__status {
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 80%;
+            margin-right: 32px;
+
+            @media screen and (max-width: $md1) {
+                font-size: 10.5px;
+                margin-right: 28px;
+            }
+
+            @media screen and (max-width: $md2) {
+                font-size: 9.25px;
+                margin-right: 25px;
+            }
+
+            @media screen and (max-width: $md3) {
+                display: none;
+            }
+        }
+
+        .status-mobile {
+            display: none;
+
+            @media screen and (max-width: $md3) {
+                display: block;
+                font-size: 12px;
+                margin: 0;
+            }
+
+            @media screen and (max-width: $md4) {
+                font-size: 2.5vw;
+            }
+        }
+
+        &__icon {
+            width: 24px;
+
+            img {
+                width: 100%;
+            }
+
+            @media screen and (max-width: $md1) {
+                width: 21px;
+            }
+
+            @media screen and (max-width: $md2) {
+                width: 18.5px;
+            }
+
+            @media screen and (max-width: $md3) {
+                display: none;
+            }
+        }
+
+        &__icon-mobile {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            display: none;
+
+            @media screen and (max-width: $md3) {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 48px;
+                height: 48px;
+                background-color: #2178FF;
+                border-top-left-radius: 9px;
+                border-bottom-right-radius: 9px;
+                
+                img {
+                    width: 15px;
+                }
+            }
+
+            @media screen and (max-width: $md4) {
+                width: 10vw;
+                height: 10vw;
+                border-top-left-radius: 1.875vw;
+                border-bottom-right-radius: 1.875vw;
+                
+                img {
+                    font-size: 3.125vw;
+                }
+            }
+        }
+    }
+    
+
+}

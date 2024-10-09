@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}{{ module.name }}{% endblock %}
+{% block content %} 
+<section class="module">
+    <div class="module__container container">
+        <div class="module__title-block">
+            <div class="module__title">{{ module.name }}</div>
+            <div class="module__descr">{{ module.description }}</div>
+        </div>
+        <div class="module__lectures">
+            <div class="module__lectures__title">Лекции модуля:</div>
+            {% for lecture in module.lectures.all %}
+            <a href="{% url 'courses:lecture-detail' lecture.id %}" class="module__lectures__lecture">
+                <div class="module__lectures__lecture__title">{{ lecture.name }}</div>
+                <div class="module__lectures__lecture__content">
+                    <div class="module__lectures__lecture__duration">{{ lecture.duration }} минуты</div>
+                    <!-- <div class="module__lectures__lecture__status"></div> -->
+                    {% if lecture.video %}
+                        <div class="module__lectures__lecture__file">
+                            <img src="{% static 'PNMO_media/video_lecture_icon.svg' %}" alt="Video icon">
+                            <span>Видео-лекция</span>
+                        </div>
+                    {% else %}
+                        <div class="module__lectures__lecture__file">PDF-файл</div>
+                    {% endif %}
+                    {% if lecture.status == "completed" %}
+                    <div class="module__lectures__lecture__status" style="color: #2178FF;">Завершено</div>
+                    {% else %}
+                    <div class="module__lectures__lecture__status">В процессе</div>
+                    {% endif %}
+                    <div class="module__lectures__lecture__arrow"><img src="{% static 'PNMO_media/lecture-arrow-blue.svg' %}" alt="Arrow right"></div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

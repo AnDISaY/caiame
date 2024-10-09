@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}quiz{% endblock %}
+
+{% block content %}
+    {% for obj in object_list %}
+<!--    <a href="{{ obj.pk }}"-->
+<!--       data-pk="{{ obj.pk }}"-->
+<!--       data-quiz="{{ obj.name }}"-->
+<!--       data-questions="{{ obj.questions }}"-->
+<!--       data-time="{{ obj.time }}"-->
+<!--       data-pass="{{ obj.required_score_to_pass }}">-->
+<!--    {{ obj }}</a><br>-->
+    <a href="{{ obj.pk }}">{{ obj }}</a><br>
+    {% endfor %}
+{% endblock %}

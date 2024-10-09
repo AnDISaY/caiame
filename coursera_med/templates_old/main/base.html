@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body id="bootstrap-overrides" style="background-color:#f3f7fa;">
+    <nav class="navbar navbar-expand-xxl fixed-top bg-white">
+        <div class="container-xxl">
+            <a href="{% url 'home' %}" class="navbar_brand" >
+                <img src="{% static 'PNMO_media/logo_home_1.svg' %}" alt="Home">
+            </a>
+            {% if not user.is_authenticated %}
+            <a href="#courseGrid" class="nav-link course-search-home">Изучить курсы</a>
+            <ul class="navbar-nav">
+                <li class="nav-item signin-nav">
+                    <a href="{% url 'login' %}" class="nav-link">Войти</a>
+                </li>
+                <li class="nav-item divider">|</li>
+                <li class="nav-item reg-nav">
+                    <a href="{% url 'signup' %}" class="nav-link">Зарегистрироваться</a>
+                </li>
+            </ul>
+            {% else %}
+            <a href="/home/#courseGrid" class="nav-link course-search-home" style="padding: 0px;">Изучить курсы</a>
+            <ul class="navbar-nav">
+                <li class="nav-item signin-nav">
+                    <a href="{% url 'profile' %}" class="nav-link">Личный кабинет</a>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+    </nav>
+    {% block content %}
+
+    {% endblock %}
+    <footer>
+        <div class="footer-wrapper profile-footer">
+            <div class="footer-content-container container-xxl">
+                <div class="footer-links-container">
+                    <div class="footer-title-container">
+                        <h2 class="footer-title-text">
+                            Платформа Непрерывного
+                            Медицинского Образования
+                        </h2>
+                    </div>
+                    <div class="footer-links-column-1">
+                        <a href="#" class="text-decoration-none text-reset footer-link">Курсы</a>
+                        <a href="#" class="text-decoration-none text-reset footer-link">Форум и чат</a>
+                        <a href="#" class="text-decoration-none text-reset footer-link">Контакты</a>
+                    </div>
+                    <div class="footer-links-column-2">
+                        <a href="{% url 'profile' %}" class="text-decoration-none text-reset footer-link">Личный кабинет</a>
+                        <a href="#" class="text-decoration-none text-reset footer-link">Администрирование</a>
+                        <a href="#" class="text-decoration-none text-reset footer-link">О нас</a>
+                    </div>
+                    <div class="footer-links-column-2">
+                        <a href="{% url 'signup' %}" class="text-decoration-none text-reset footer-link">Регистрация</a>
+                        <a href="{% url 'login' %}" class="text-decoration-none text-reset footer-link">Войти</a>
+                        <a href="#" class="text-decoration-none text-reset footer-link">Техподдержка</a>
+                    </div>
+                </div>
+                <div class="footer-copyright-container">
+                    <p class="copyright-text text-reset copyright-profile">
+                        © 2024 Центрально азиатский институт дополнительного медицинского образования
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {% block extrascripts %}
+
+    {% endblock %}
+</body>
+</html>

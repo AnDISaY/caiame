@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ module.name }}{% endblock %}
+
+{% block content %} 
+<section class="module">
+    <div class="module__container container">
+        <div class="module__title-mobile">{{ module.course.name }}</div>
+        <div class="module__wrapper">
+            <div class="module__title-block">
+                <div class="module__title">{{ module.name }}</div>
+                <div class="module__description">{{ module.description }}</div>
+            </div>
+            <div class="module__lectures">
+                <div class="module__lectures__title">Лекции модуля:</div>
+                <div class="module__cards">
+                    {% for user_lecture in lectures %}
+                    <a href="{% url 'lecture-detail' user_lecture.lecture.id %}" class="module__lectures__lecture">
+                        {% if lecture.status == "completed" %}
+                        <div class="module__lectures__lecture__status status-mobile" style="color: #2178FF;">Завершено</div>
+                        {% else %}
+                        <div class="module__lectures__lecture__status status-mobile">В процессе</div>
+                        {% endif %}
+                        <div class="module__lectures__lecture__title">{{ user_lecture.lecture.name }}</div>
+                        <div class="module__lectures__lecture__content">
+                            <div class="module__lectures__lecture__duration">{{ user_lecture.lecture.duration }} минуты</div>
+                            <!-- <div class="module__lectures__lecture__status"></div> -->
+                            {% if user_lecture.lecture.video %}
+                                <div class="module__lectures__lecture__file">
+                                    <img src="{% static 'images/icon-video.svg' %}" alt="Video icon">
+                                    <span>Видео-лекция</span>
+                                </div>
+                            {% else %}
+                                <div class="module__lectures__lecture__file center-file"><span>PDF-файл</span></div>
+                            {% endif %}
+                            {% if lecture.status == "completed" %}
+                            <div class="module__lectures__lecture__status" style="color: #2178FF;">Завершено</div>
+                            {% else %}
+                            <div class="module__lectures__lecture__status">В процессе</div>
+                            {% endif %}
+                            <div class="module__lectures__lecture__icon"><img src="{% static 'images/icon-arrow-blue.svg' %}" alt="Arrow right"></div>
+                        </div>
+                        <div class="module__lectures__lecture__icon-mobile"><img src="{% static 'images/icon-arrow-white.svg' %}" alt="Arrow right"></div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

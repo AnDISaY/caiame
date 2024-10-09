@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ object.name }}{% endblock %}
+
+{% block content %}
+<section class="course-hero" style="background-image: url({{ object.image.url }}); background-repeat: no-repeat; background-size: cover;">
+    <div class="course-hero__blackout"></div>
+    <div class="course-hero__container container">
+        <div class="course-hero__wrapper">
+            <div class="course-hero__title">{{ object.name }}</div>
+            <div class="course-hero__tags">
+                <div class="course-hero__tag">
+                    <div class="course-hero__tag__title">{{ object.get_difficulty_display }}</div>
+                    <div class="course-hero__tag__under">— уровень сложности</div>
+                </div>
+                <div class="course-hero__tag">
+                    <div class="course-hero__tag__title">150 сом</div>
+                    <div class="course-hero__tag__under">— стоимость 1 часа</div>
+                </div>
+                <div class="course-hero__tag">
+                    <div class="course-hero__tag__title">{{ object.get_duration_display }} часов</div>
+                    <div class="course-hero__tag__under">— длительность курса</div>
+                </div>
+                <div class="course-hero__tag">
+                    <div class="course-hero__tag__title">{{ object.get_language_display }}</div>
+                    <div class="course-hero__tag__under">— язык обучения</div>
+                </div>
+                {% if not relation_is_exists %}
+                <div class="course-hero__tag" style="cursor: pointer;">
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="course-hero__btn">Зарегистрироваться</button>
+                    </form>
+                </div>
+                {% else %}
+                <div class="course-hero__tag" style="background-color: #fff;">
+                    <div class="course-hero__btn" style="color: #2178FF;">Курс приобретен</div>
+                </div>
+                {% endif %}
+            </div>
+            <div class="course-hero__tags-mobile" style="background-image: url({{ object.image.url }}); background-repeat: no-repeat; background-size: cover;">
+                <div class="course-hero__tags-mobile__blackout"></div>
+                <div class="course-hero__tags__row">
+                    <div class="course-hero__tags__column course-hero__tags__column1">
+                        <div class="course-hero__tag__title">{{ object.get_difficulty_display }}</div>
+                        <div class="course-hero__tag__under">— уровень сложности</div>
+                    </div>
+                    <div class="course-hero__tags__column course-hero__tags__column2">
+                        <div class="course-hero__tag__title">150 сом</div>
+                        <div class="course-hero__tag__under">— стоимость 1 часа</div></div>
+                </div>
+                <div class="course-hero__tags__row">
+                    <div class="course-hero__tags__column course-hero__tags__column1">
+                        <div class="course-hero__tag__title">{{ object.get_duration_display }} часов</div>
+                        <div class="course-hero__tag__under">— длительность курса</div></div>
+                    <div class="course-hero__tags__column course-hero__tags__column2">
+                        <div class="course-hero__tag__title">{{ object.get_language_display }}</div>
+                        <div class="course-hero__tag__under">— язык обучения</div></div>
+                </div>
+            </div>
+            <div class="course-hero__btn-mobile">
+                {% if not relation_is_exists %}
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="course-hero__btn">Зарегистрироваться</button>
+                </form>
+                {% else %}
+                <div class="course-hero__btn" style="background-color: #61C000;">Курс приобретен</div>
+                <!-- 2178FF -->
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="course-info">
+    <div class="course-info__container container">
+        <div class="course-info__title">Основная информация</div>
+        <div class="course-info__text">{{ object.text|linebreaks }}</div>
+    </div>
+</section>
+<section class="course-modules">
+    <div class="course-modules__container container">
+        <div class="course-modules__wrapper">
+            {% for module in object.modules.all %}
+            <a href="{% url 'module-detail' course_pk=object.id pk=module.pk %}" class="course-modules__module">
+                <div class="course-modules__content">
+                    {% if object.modules.all.count > 9 %}
+                    <div class="course-modules__title">Модуль #0{{ module.sequence_number }}</div>
+                    {% else %}
+                    <div class="course-modules__title">Модуль #00{{ module.sequence_number }}</div>
+                    {% endif %}
+                    <div class="course-modules__description">{{ module.description|truncatechars:45 }}</div>
+                </div>
+                <div class="course-modules__icon"><img src="{% static 'images/icon-arrow-blue.svg' %}" alt="Blue arrow icon"></div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

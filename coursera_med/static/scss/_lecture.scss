@@ -1,0 +1,549 @@
+.lecture {
+    margin: 60px 0px 140px;
+
+    @media screen and (max-width: $md1) {
+        margin: 53px 0px 123px;
+    }
+
+    @media screen and (max-width: $md2) {
+        margin: 46px 0px 108px;
+    }
+
+    @media screen and (max-width: $md3) {
+        margin: 84px 0px 60px;
+    }
+
+    @media screen and (max-width: $md4) {
+        margin: 17.5vw 0px 12.5vw;
+    }
+
+    &__title-mobile {
+        display: none;
+
+        @media screen and (max-width: $md3) {
+            display: block;
+            font-weight: 700;
+            font-size: 27px;
+            line-height: 140%;
+            max-width: 350px;
+            margin-bottom: 60px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 5.625vw;
+            max-width: 72vw;
+            margin-bottom: 12.5vw;
+        }
+    }
+
+    &__module-mobile {
+        display: none;
+
+        @media screen and (max-width: $md3) {
+            display: block;
+            font-weight: 700;
+            font-size: 27px;
+            color: #2178FF;
+            line-height: 80%;
+            background-color: #fff;
+            padding: 45px 30px;
+            border-radius: 9px;
+            margin-bottom: 12px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 5.625vw;
+            padding: 9.375vw 6.25vw;
+            border-radius: 1.875vw;
+            margin-bottom: 2.5vw;
+        }
+    }
+
+    &__wrapper {
+        padding: 70px 60px;
+        background-color: #fff;
+        border-radius: 18px;
+
+        @media screen and (max-width: $md1) {
+            padding: 62px 53px;
+            border-radius: 16px;
+        }
+
+        @media screen and (max-width: $md2) {
+            padding: 54px 46px;
+            border-radius: 14px;
+        }
+
+        @media screen and (max-width: $md3) {
+            padding: 45px 30px;
+            border-radius: 9px;
+        }
+
+        @media screen and (max-width: $md4) {
+            padding: 9.375vw 6.25vw;
+            border-radius: 1.875vw;
+        }
+    }
+
+    &__title-block {
+        display: flex;
+        flex-direction: column;
+        gap: 56px 0px;
+        padding-bottom: 80px;
+        border-bottom: 1px solid #BEBEBE;
+
+        @media screen and (max-width: $md1) {
+            gap: 49px 0px;
+            padding-bottom: 70px;
+            border-bottom: 0.88px solid #BEBEBE;
+        }
+
+        @media screen and (max-width: $md2) {
+            gap: 43px 0px;
+            padding-bottom: 62px;
+            border-bottom: 0.77px solid #BEBEBE;
+        }
+
+        @media screen and (max-width: $md3) {
+            gap: 35px 0px;
+            padding-bottom: 46.5px;
+            border-bottom: 0.9px solid #BEBEBE;
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 7.5vw;
+            padding-bottom: 9.375vw;
+            border-bottom: 0.187vw solid #BEBEBE;
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 160%;
+        max-width: 640px;
+
+        @media screen and (max-width: $md1) {
+            font-size: 28px;
+            max-width: 562px;
+        }   
+
+        @media screen and (max-width: $md2) {
+            font-size: 25px;
+            max-width: 500px;
+        }
+
+        @media screen and (max-width: $md3) {
+            font-size: 24px;
+            max-width: 320px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 5vw;
+            max-width: 68vw;
+        }
+    }
+
+    &__text {
+        font-size: 14px;
+        line-height: 180%;
+        max-width: 720px;
+
+        @media screen and (max-width: $md1) {
+            font-size: 12px;
+            max-width: 702px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 11px;
+            max-width: 620px;
+        }
+
+        @media screen and (max-width: $md3) {
+            font-size: 12px;
+            max-width: 345px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 2.5vw;
+            max-width: 72vw;
+        }
+    }
+
+    &__video-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px 0px;
+        padding-top: 60px;
+
+        @media screen and (max-width: $md1) {
+            gap: 21px 0px;
+            padding-top: 53px;
+        }
+
+        @media screen and (max-width: $md2) {
+            gap: 18.5px 0px;
+            padding-top: 46px;
+        }
+
+        @media screen and (max-width: $md3) {
+            gap: 24px 0px;
+            padding-top: 45px;
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 5vw 0px;
+            padding-top: 9.375vw;
+        }
+    }
+
+    &__video {
+        width: 770px;
+        height: 434px;
+
+        div {
+            width: 100%;
+            height: 100%;
+        }
+
+        @media screen and (max-width: $md1) {
+            width: 676px;
+            height: 381px;
+        }
+
+        @media screen and (max-width: $md2) {
+            width: 593.5px;
+            height: 334.5px;
+        }
+
+        @media screen and (max-width: $md3) {
+            width: 360px;
+            height: 202.5px;
+        }
+
+        @media screen and (max-width: $md4) {
+            width: 75vw;
+            height: 42.188vw;
+        }
+    }
+
+    .vjs-big-play-button {
+        @media screen and (max-width: $md1) {
+            background-size: 42px !important;
+        }
+        
+        @media screen and (max-width: $md2) {
+            background-size: 37px !important;
+        }
+
+        @media screen and (max-width: $md3) {
+            background-size: 27px;
+        }
+
+        @media screen and (max-width: $md4) {
+            background-size: 5.625vw;
+        }
+    }
+
+    &__status-btn, &__status-btn2 {
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 80%;
+        color: #fff;
+        padding: 14px 24px;
+        background-color: #2178FF;
+        border-radius: 4px;
+
+        @media screen and (max-width: $md1) {
+            font-size: 9px;
+            padding: 12px 21px;
+            border-radius: 3.5px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 8px;
+            padding: 11px 18.5px;
+            border-radius: 3px;
+        }
+
+        @media screen and (max-width: $md3) {
+            font-size: 12px;
+            padding: 12px 24px;
+            border-radius: 6px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 2.5vw;
+            padding: 2.5vw 5vw;
+            border-radius: 1.25vw;
+        }
+    }
+
+    &__status-btn {
+        cursor: pointer;
+    }
+
+    &__status-btn2 {
+        padding: 14px 66px;
+        background-color: #61C000;
+
+        @media screen and (max-width: $md1) {
+            padding: 12px 59.54px;
+        }
+
+        @media screen and (max-width: $md2) {
+            padding: 11px 53px;
+        }
+
+        @media screen and (max-width: $md3) {
+            padding: 12px 74.67px;
+        }
+
+        @media screen and (max-width: $md4) {
+            padding: 2.5vw 15.781vw;
+        }
+    }
+
+
+    &__pdf-block {
+        margin-top: 80px;
+        padding: 30px 40px;
+        border: 1px solid #BEBEBE;
+        border-radius: 12px;
+
+        @media screen and (max-width: $md1) {
+            margin-top: 70px;
+            padding: 35px 26px;
+            border: 0.88px solid #BEBEBE;
+            border-radius: 10.5px;
+        }
+
+        @media screen and (max-width: $md2) {
+            margin-top: 62px;
+            padding: 32px 23px;
+            border: 0.77px solid #BEBEBE;
+            border-radius: 9px;
+        }
+
+        @media screen and (max-width: $md3) {
+            margin-top: 45px;
+            padding: 0;
+            border: 0px;
+            border-radius: 0px;
+        }
+
+        @media screen and (max-width: $md4) {
+            margin-top: 9.375vw;
+        }
+    }
+
+    &__pdf-file {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media screen and (max-width: $md3) {
+            align-items: start;
+            justify-content: start;
+            flex-direction: column;
+            gap: 24px 0px;
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 5vw 0px;
+        }
+    }
+
+    &__pdf-content {
+        display: flex;
+        align-items: center;
+        gap: 0px 24px;
+
+        @media screen and (max-width: $md1) {
+            gap: 0px 21px;
+        }
+
+        @media screen and (max-width: $md2) {
+            gap: 0px 18.5px;
+        }
+
+        @media screen and (max-width: $md3) {
+            flex-direction: column;
+            align-items: start;
+            gap: 24px 0px;
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 5vw 0px;
+        }
+    }
+
+    &__pdf-image {
+        width: 22px;
+        height: 26px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        @media screen and (max-width: $md1) {
+            width: 19.3px;
+            height: 22.8px;
+        }
+
+        @media screen and (max-width: $md2) {
+            width: 17px;
+            height: 20px;
+        }
+
+        @media screen and (max-width: $md3) {
+            display: flex;
+            align-items: center;
+            gap: 0px 15px;
+            width: 18px;
+            height: 21px;
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 0px 3.125vw;
+            width: 3.75vw 4.375vw;
+        }
+    }
+
+    &__pdf-text {
+        display: flex;
+        flex-direction: column;
+        gap: 14px 0px;
+
+        @media screen and (max-width: $md1) {
+            gap: 12px 0px;
+        }
+
+        @media screen and (max-width: $md2) {
+            gap: 10.5px 0px;
+        }
+
+        @media screen and (max-width: $md3) {
+            gap: 0;
+        }
+    }
+
+    &__pdf-title {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 80%;
+
+        @media screen and (max-width: $md1) {
+            font-size: 12px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 11px;
+        }
+
+        @media screen and (max-width: $md3) {
+            font-size: 15px;
+            max-width: 250px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 3.125vw;
+            max-width: 52vw;
+        }
+    }
+
+    &__pdf-subtext {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 80%;
+        color: #BEBEBE;
+
+        @media screen and (max-width: $md1) {
+            font-size: 14px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 12px;
+        }
+
+        @media screen and (max-width: $md3) {
+            display: none;
+        }
+    }
+
+    &__pdf-subtext-mobile {
+        display: none;
+
+        @media screen and (max-width: $md3) {
+            display: block;
+            font-weight: 600;
+            font-size: 15px;
+            color: #BEBEBE;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 3.125vw;
+        }
+    }
+
+    &__pdf-buttons {
+        display: flex;
+        align-items: center;
+        gap: 0px 8px;
+
+        @media screen and (max-width: $md1) {
+            gap: 0px 7px;
+        }
+
+        @media screen and (max-width: $md2) {
+            gap: 0px 6px;
+        }
+
+        @media screen and (max-width: $md3) {
+            flex-direction: column;
+            align-items: start;
+            gap: 45px 0px;
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 9.375vw 0px;
+        }
+    }
+
+    &__pdf-button {
+        font-weight: 600;
+        font-size: 10px;
+        line-height: 80%;
+        color: #fff;
+        padding: 14px 24px;
+        background-color: #2178FF;
+        border-radius: 4px;
+
+        @media screen and (max-width: $md1) {
+            font-size: 9px;
+            padding: 12px 21px;
+            border-radius: 3.5px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 8px;
+            padding: 11px 18.5px;
+            border-radius: 3px;
+        }
+
+        @media screen and (max-width: $md3) {
+            font-size: 12px;
+            padding: 12px 24px;
+            border-radius: 6px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 2.5vw;
+            padding: 2.5vw 5vw;
+            border-radius: 1.25vw;
+        }
+    }
+}

@@ -1,0 +1,507 @@
+ .course-overview-container {
+        height: 740px;
+        margin-top: 3.5rem;
+    }
+    .course-overview-info-container {
+        display: grid;
+        grid-template-rows: 410px 250px;
+        align-items: end;
+    }
+    .course-overview-text-container {
+        width: 510px;
+        color: white;
+    }
+    .course-name-text {
+        font-size: 38px;
+        font-weight: 700;
+    }
+    .course-author-text {
+        padding-bottom: 0.7rem;
+    }
+    .course-overview-image {
+        position: absolute;
+        width: 100%;
+        height: 740px;
+        object-fit: cover;
+        z-index: -1;
+        filter: brightness(0.65);
+        
+    }
+    .course-page-price-container, .course-page-diff-container, .course-page-length-container, .course-page-lang-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+        height: 100px;
+    }
+    .course-page-price-container, .course-page-diff-container, .course-page-length-container, .course-page-lang-container h3, p {
+        margin: 0 !important;
+    }
+    .course-page-price-title, .course-page-length-title, .course-page-lang-title, .course-page-diff-title {
+        font-size: 20px;
+        color: #2178FF;
+        font-weight: 800;
+        margin: 0 !important;
+        left: 30px;
+        position: relative;
+    }
+    .course-page-price-text, .course-page-length-text, .course-page-lang-text, .course-page-diff-text {
+        font-size: 12px;
+        color: #3C3C3C;
+        font-weight: 600;
+        margin: 0 !important;
+        left: 30px;
+        position: relative;
+    }
+    .course-page-diff-container {
+        height: 100px;
+    }
+    .course-page-main-info-container {
+        grid-template-columns: 211px 1001px;
+    }
+    .course-page-form-row {
+        grid-template-columns: 233px 257px 211px 300px;
+        height: 100px;
+    }
+    .course-page-reg-btn-container {
+        background-color: transparent;
+    }
+    .course-page-reg-btn {
+        width: 100%;
+        height: 100%;
+        background-color: #2178FF !important; 
+        color: white !important;
+        border-radius: 0 24px 24px 0 !important;
+        display: flex !important;
+        align-items: center;
+        font-size: 20px !important;
+        font-weight: 800 !important;
+        border: none;
+    }
+    .reg-btn-text {
+        left: 18px;
+        position: relative;
+    }
+
+ .modules-container {
+        height: 1050px;
+        display: grid;
+        align-items: center;
+    }
+    .modules-info-text-container {
+        height: 400px;
+        display: grid;
+        align-items: center;
+    }
+    .modules-info-wrapper {
+        display: grid;
+        grid-template-rows: 30px 80px 100px;
+        gap: 2rem;
+        width: 738px;
+    }
+
+    .modules-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #3C3C3C !important;
+    }
+    .modules-text-1, .modules-text-2 {
+        font-size: 16px;
+        font-weight: 500;
+        color: #3C3C3C !important;
+    }
+    .modules-wrapper {
+        width: 1240px;
+        background-color: white;
+        border-radius: 18px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #BEBEBE;
+        padding: 2.5rem;
+    }
+    .module-object {
+        align-items: center;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .module-status-container {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+    .module-status-text {
+        font-size: 12px;
+        font-weight: 700;
+        color: #3C3C3C;
+    }
+    .module-first {
+        margin-top: 0.8rem;
+    }
+    .module-last {
+        margin-bottom: 0.8rem;
+    }
+    .module-info {
+        margin-right: 12rem;
+        display: grid;
+        gap: 0.5rem;
+    }
+    .module-number {
+        font-size: 24px;
+        font-weight: 700;
+    }
+    .module-desc {
+        font-size: 16px;
+        font-weight: 600;
+        color: #838383;
+    }
+    .module-arrow-img {
+        margin-bottom: 0.2rem;
+    }
+    .module-btn {
+        border: none;
+        background: transparent;
+    }
+    .modules-hr {
+        margin-left: 1rem;
+    }
+    .module-not-started {
+        color: #BEBEBE;
+    }
+    .module-complete {
+        color: #2178FF;
+    }
+    .test-info {
+        width: 245px;
+        margin-right: 8.8rem;
+    }
+    .test-not-started {
+        color: #FF4A4A;
+    }
+    .progress-container {
+        width: 1120px;
+        margin-left: 0.8rem;
+        margin-top: 4.5rem;
+        padding-bottom: 2.5rem;
+    }
+    .progress-bar-container {
+        display: flex;
+        align-items: center;
+        margin-top: 3.5rem;
+    }
+    
+    .progress-start, .progress-end {
+        width: 20px;
+        text-align: center;
+        color: #ccc;
+        position: absolute;
+    }
+    .progress-end {
+        margin-left: 67.5rem;
+        margin-bottom: 3rem;
+    }
+    .progress-start {
+        margin-bottom: 3rem;
+    }
+    .progress-title {
+        font-weight: 700;
+    }
+    .progress-bar {
+        position: relative;
+        flex: 1;
+        height: 8px;
+        background-color: #f0f0f0 !important;
+        border-radius: 4px;
+        overflow: visible !important;
+        width: 1136px !important;
+    }
+    
+    .progress {
+        height: 8px !important;
+        background-color: #2178FF !important;
+        border-radius: 4px 0 0 4px;
+        transition: width 0.3s;
+    }
+    
+    .progress-thumb {
+        position: absolute;
+        top: -5px;
+        width: 18px;
+        height: 18px;
+        background-color: #2178FF;
+        border-radius: 50%;
+        transition: left 0.3s;
+        transform: translateX(-50%);
+    }
+    
+    .progress-value {
+        position: absolute;
+        color: #2178FF;
+        font-weight: bold;
+        transform: translateX(-50%);
+    }
+    .tasks-container {
+        height: 1224px;
+    }
+    .progress-container2 {
+        width: 200px;
+        margin-top: 0.2rem;
+    }
+    #progress-thumb2 {
+        width: 8px;
+        height: 8px;
+    }
+    .reviews-stats-container {
+        display: grid;
+        grid-template-rows: 70px 30px 254px;
+    }
+    .reviews-overall-rating-container {
+        display: flex;
+        align-items: flex-end;
+        gap: 0.5rem;
+    }
+    .reviews-overall-rating-container h3 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 700;
+        color: #3C3C3C;
+    }
+    .reviews-overall-rating-container p {
+        font-size: 12px;
+        font-weight: 600;
+        color: #838383;
+    }
+    .reviews-overall-rating-container img {
+        margin-bottom: 0.3rem;
+    }
+    .reviews-ratings-container {
+        display: flex;
+        gap: 1rem;
+    }
+    .ratings-progress-bar {
+        margin: 0;
+    }
+    .rating-type-container {
+        display: flex;
+    }
+    .rating-type-container img {
+        width: 7px;
+        height: 6px;
+        margin-top: 0.7rem;
+        margin-left: 0.15rem;
+    }
+    .rating-type-container p {
+        font-size: 16px;
+        font-weight: 600;
+        color: #838383;
+    }
+    .reviews-types-container {
+        display: grid;
+        grid-template-rows: repeat(5, 24px);
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    .rating-progress-bar-container {
+        display: grid;
+        align-items: center;
+    }
+    .progress-bar2 {
+        background-color: white !important;
+    }
+    .rating-progress-value {
+        color: #838383 !important;
+        font-size: 12px;
+    }
+    .star-1 {
+        margin-left: 0.25rem !important;
+    }
+    .stats-title {
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    .review-photo-container {
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    .review-photo-container img {
+        object-fit: cover;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+    .review-photo-container h3 {
+        font-size: 16px;
+        font-weight: 700;
+        color: #3C3C3C;
+    }
+    .review-grid-container {
+        grid-template-columns: 220px 600px;
+        justify-content: start;
+        border-color: #BEBEBE;
+        width: 876px;
+        height: 179px;
+    }
+    .review-rating-container {
+        display: flex;
+        align-items: flex-end;
+    }
+    .review-rating-container h3 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: #2178FF;
+    }
+    .review-rating-container img {
+        width: 11px;
+        height: 10px;
+        margin-bottom: 0.2rem;
+    }
+    .review-rating-container p {
+        font-size: 10px;
+        font-weight: 600;
+        color: #BEBEBE;
+        margin-left: 1rem !important;
+    }
+    .review-info-container {
+        grid-template-rows: 30px 60px;
+        gap: 1rem;
+    }
+    .reviews-wrapper {
+        display: grid;
+        grid-template-columns: 290px 876px;
+        gap: 4.5rem;
+    }
+    .review-cards-wrapper {
+        display: grid;
+        gap: 1.5rem;
+    }
+    .review-cards-wrapper a {
+        text-decoration: none !important;
+        font-size: 12px;
+        font-weight: 600;
+        color: #838383 !important;
+    }
+    .reviews-container {
+        height: 750px;
+        display: grid;
+        align-items: center;
+    }
+    .discussion-dropdown-btn {
+        border: none;
+        background: transparent;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+    }
+    .not-flipped {
+        transform: scaleY(1);
+    }
+    .flipped {
+        transform: scaleY(-1);
+    }
+    .common-questions-wrapper {
+        width: 780px;
+        height: 452px;
+        background-color: white;
+        border-radius: 14px;
+        border-color: #BEBEBE;
+        border-width: 1px;
+        border-style: solid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .question-dropdown-container {
+        width: 650px;
+        grid-template-columns: 400px 250px;
+        align-items: center;
+    }
+    
+    .hr-discussions {
+        width: 700px;
+    }
+    .discussion-question-object {
+        font-size: 16px;
+        font-weight: 700;
+        color: #3C3C3C;
+        line-height: 1.8;
+    }
+    .question-title-container {
+        width: 400px;
+        margin: 0;
+        margin-top: 0.5rem;
+    }
+    .discussion-title-container h3 {
+        font-size: 32px;
+        font-weight: 700;
+        color: #3C3C3C;
+        padding-bottom: 3rem;
+    }
+    .question-card-container {
+        width: 430px;
+        height: 140px;
+        background-color: white;
+        grid-template-columns: 100px 300px;
+        gap: 0;
+        border-radius: 14px;
+    }
+    .question-photo-container img {
+        width: 24px;
+        height: 24px;
+    }
+    .question-card-title {
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        color: #3C3C3C !important;
+    }
+    .question-info-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .discussion-wrapper {
+        display: grid;
+        grid-template-columns: 780px 430px;
+        gap: 2rem;
+    }
+    .discussion-title-container h3 {
+        margin-left: 2rem;
+    }
+    .other-questions {
+        font-size: 12px;
+        font-weight: 600;
+        color: #838383;
+        text-decoration: none;
+        margin-left: 2rem;
+    }
+    .discussion-container {
+        height: 800px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+<!--<div class="course-container">-->
+<!--    {{ object.name }}<br>-->
+<!--    {{ object.description }}<br>-->
+<!--    {{ object.language }}<br>-->
+<!--    {{ object.duration }}<br>-->
+<!--    {% for m in object.modules.all %}-->
+<!--    <a href="{% url 'courses:module-detail' course_pk=object.id pk=m.id %}">{{ m }}</a><br>-->
+<!--    {% endfor %}-->
+<!--    <img src="{{ object.image.url }}" alt="" style="height: 300px; width: 300px;">-->
+<!--    {% if relation_is_exists %}-->
+<!--    Курс уже приобретен-->
+<!--    {% else %}-->
+<!--    <form method="post">{% csrf_token %}-->
+<!--        <button type="submit">Регнуться на курс</button>-->
+<!--    </form>-->
+<!--    {% endif %}-->
+<!--</div>-->
+

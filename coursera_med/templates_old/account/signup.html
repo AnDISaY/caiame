@@ -1,0 +1,101 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+<div class="registration-container container-xxl" style="margin-top: 10rem;">
+    <div class="registration-title-container">
+        <h3 class="registration-title-text">Укажите адрес электронной почты, чтобы зарегистрироваться</h3>
+        <p class="user-email" style="display: none;">your@email</p>
+    </div>
+    <form method="post"> {% csrf_token %}
+          {{ form.email }}
+          {{ form.username }}
+          {{ form.password1 }}
+          {{ form.password2 }}
+          <div class="continue-container">
+            <p class="copyright-text">Продолжая, я принимаю Политику конфиденциальности и Условия использования ПНМО</p>
+            <input type="submit" id="continue_btn" class="continue_btn btn btn-secondary" value="Продолжить">
+          </div>
+          <button type="button" class="toggle-password1" onclick="togglePasswordVisibility()" style="display: none;">
+            <img src="{% static 'PNMO_media/show_password.svg' %}" alt="eye">
+          </button>
+          <button type="button" class="toggle-password2" onclick="togglePasswordVisibility()" style="display: none;">
+              <img src="{% static 'PNMO_media/show_password.svg' %}" alt="eye">
+          </button>
+          <button type="submit" style="display: none; border: none;" id="signup_btn">Продолжить</button>
+    </form>
+</div>
+{% endblock %}
+{% block extrascripts %}
+<script>
+    function togglePasswordVisibility() {
+        var passwordInput1 = document.getElementById('id_password1');
+        var toggleButton = document.querySelector('.toggle-password1');
+        var passwordInput2 = document.getElementById('id_password2');
+        if (passwordInput1.type === "password") {
+            passwordInput1.type = "text";
+            passwordInput2.type = "text";
+        } else {
+            passwordInput1.type = "password";
+            passwordInput2.type = "password";
+        }
+    }
+
+    };
+    function showPasswordFields() {
+
+        var usernameChild = document.getElementById('id_username');
+        var signupBtn = document.getElementById('signup_btn');
+        var continueBtn = document.getElementById('continue_btn');
+        var password1Child = document.getElementById('id_password1');
+        var password2Child = document.getElementById('id_password2');
+        var h3 = document.querySelector('.registration-title-text');
+        var userEmail = document.querySelector('.user-email');
+        var viewPasswordBtn1 = document.querySelector('.toggle-password1');
+        var viewPasswordBtn2 = document.querySelector('.toggle-password2');
+        var copyrightText = document.querySelector('.copyright-text')
+        if(usernameChild) { // Simple client-side validation; enhance as needed
+            usernameChild.style.display = 'none';
+            signupBtn.style.display = 'block';
+            continueBtn.style.display = 'none';
+            password1Child.style.display = 'block';
+            password2Child.style.display = 'block';
+            copyrightText.style.display = 'none';
+            userEmail.style.display = 'block';
+            viewPasswordBtn1.style.display = 'block';
+            viewPasswordBtn2.style.display = 'block';
+            h3.textContent = 'Придумайте себе пароль';
+            // password1Child.forEach(function(element) {
+            //     element.style.display = 'block';
+            // });
+            // password2Child.forEach(function(element) {
+            //     element.style.display = 'block';
+            // });
+        } else {
+            alert("Please enter a valid email.");
+        }
+    }
+
+    document.getElementById('continue_btn').addEventListener('click', function() {
+    var usernameChild = document.getElementById('id_username');
+    if (usernameChild.value.trim() !== '') {
+        // If the username input is not empty, execute the function
+        showPasswordFields();
+    } else {
+        // Optionally, handle the case where the input is empty
+        alert('Username field is empty!');
+        }
+    })
+    document.getElementById('signup_btn').addEventListener('click', function() {
+    var password1 = document.getElementById('id_password1');
+    var password2 = document.getElementById('id_password2');
+    if (password1.value.trim() == '' || password2.value.trim() == '') {
+            // If the username input is not empty, execute the function
+            event.preventDefault();
+            alert('Password fields cannot be empty!');
+        }
+    })
+</script>
+{% endblock %}

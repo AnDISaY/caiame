@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load counter %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero__container container">
+        <div class="hero__subheading">Добро пожаловать на</div>
+        <div class="hero__title">Центрально-Азиатский Институт Дополнительного Медицинского Образования</div>
+        <div class="hero__content-block">
+            <div class="hero__image-block">
+                <div class="hero__image">
+                    <img src="{% static 'images/home-hero-image.jpg' %}" alt="Home first image">
+                    <div class="hero__image__filter"></div>
+                </div>
+                <div class="hero__image__text">ЦАИДМО — ваш надежный помощник в обучении и повышении квалификации. Зарегистрируйтесь или войдите, чтобы начать обучение, которое поможет вам расти профессионально и расширять вашу карьеру.</div>
+                <div class="hero__image__text hero__image__text-mobile">ЦАИДМО — ваш надежный помощник в обучении и повышении квалификации</div>
+            </div>
+            <div class="hero__content">
+                {% if user %}
+                <a href="{% url 'profile' %}" class="hero__content__square">
+                    <div class="hero__content__text">Личный кабинет</div>
+                    <div class="hero__content__icon"><img src="{% static 'images/icon-arrow-up-right.svg' %}" alt="Arrow icon"></div>
+                </a>
+                {% else %}
+                <a href="{% url 'login' %}" class="hero__content__square">
+                    <div class="hero__content__text">Войти</div>
+                    <div class="hero__content__icon"><img src="{% static 'images/icon-arrow-up-right.svg' %}" alt="Arrow icon"></div>
+                </a>
+                {% endif %}
+                <a href="#courses" class="hero__content__square">
+                    <div class="hero__content__text">Изучить курсы</div>
+                    <div class="hero__content__icon"><img src="{% static 'images/icon-arrow-up-right.svg' %}" alt="Arrow icon"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="courses">
+    <div class="courses__container container">
+        <div class="courses__back"></div>
+        <div class="courses__content">
+            <div class="courses__title">Список курсов</div>
+            <div class="courses__text">Изучите наш широкий каталог курсов, специально разработанных для медицинских специалистов. Вы можете фильтровать курсы по специализации, сложности и типу кредитования, чтобы найти именно то, что вам нужно.</div>
+            <div class="courses__text courses__text-mobile">Изучите наш широкий каталог курсов, специально разработанных для медицинских специалистов.</div>
+        </div>
+        <div class="courses__filter">
+            <form class="courses__form" type="post" id="my-form">
+                {% csrf_token %}
+                <div class="courses__form__input courses__form__title">Фильтры:</span></div>
+                <div class="courses__form__input">
+                    {{ form.specialization }}
+                    <div class="courses__form__icon"><img src="{% static 'images/icon-filter-down.svg' %}" alt="Filter down icon"></div>
+                </div>
+                <div class="courses__form__input">
+                    {{ form.difficulty }}
+                    <div class="courses__form__icon"><img src="{% static 'images/icon-filter-down.svg' %}" alt="Filter down icon"></div>
+                </div>
+                <div class="courses__form__input">
+                    {{ form.credit_type }}
+                    <div class="courses__form__icon"><img src="{% static 'images/icon-filter-down.svg' %}" alt="Filter down icon"></div>
+                </div>
+                <button type="submit">Применить</button>
+            </form>
+        </div>
+        <div class="courses__cards">
+            <div class="courses__cards__wrapper">
+                {% set 0 as count %}
+                {% set 0 as is_true %}
+                {% if courses|length > 6 %}
+                {% for course in courses %}
+                {% if count < 6 %}
+                <a href="{% url 'course-detail' course.id %}" class="courses__card show-content">
+                    <div class="courses__card__tags">
+                        <div class="courses__card__tag">{{ course.get_difficulty_display }}</div>
+                        <div class="courses__card__tag">{{ course.get_specialization_display }}</div>
+                        <div class="courses__card__tag">{{ course.get_credit_type_display }}</div>
+                    </div>
+                    <div class="courses__card__image"><img src="{{ course.image.url }}" alt=""></div>
+                    <div class="courses__card__title">{{ course.name }}</div>
+                    <div class="courses__card__description">{{ course.short_description }}</div>
+                    <div class="courses__card__more">Подробнее</div>
+                </a>
+                {% else %}
+                {% if is_true == 0 %}
+                <div class="courses__cards__show-more show-content">
+                    <span>Посмотреть больше курсов</span>
+                </div>
+                {% add is_true as is_true %}
+                {% endif %}
+                <a href="{% url 'course-detail' course.id %}" class="courses__card hide-content">
+                    <div class="courses__card__tags">
+                        <div class="courses__card__tag">{{ course.get_difficulty_display }}</div>
+                        <div class="courses__card__tag">{{ course.get_specialization_display }}</div>
+                        <div class="courses__card__tag">{{ course.get_credit_type_display }}</div>
+                    </div>
+                    <div class="courses__card__image"><img src="{{ course.image.url }}" alt=""></div>
+                    <div class="courses__card__title">{{ course.name }}</div>
+                    <div class="courses__card__description">{{ course.short_description }}</div>
+                    <div class="courses__card__more">Подробнее</div>
+                </a>
+                {% endif %}
+                {% add count as count %}
+                {% endfor %}
+                {% else %}
+                {% for course in courses %}
+                <a href="{% url 'course-detail' course.id %}" class="courses__card">
+                    <div class="courses__card__tags">
+                        <div class="courses__card__tag">{{ course.get_difficulty_display }}</div>
+                        <div class="courses__card__tag">{{ course.get_specialization_display }}</div>
+                        <div class="courses__card__tag">{{ course.get_credit_type_display }}</div>
+                    </div>
+                    <div class="courses__card__image"><img src="{{ course.image.url }}" alt=""></div>
+                    <div class="courses__card__title">{{ course.name }}</div>
+                    <div class="courses__card__description">{{ course.short_description }}</div>
+                    <div class="courses__card__more">Подробнее</div>
+                </a>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="about">
+    <div class="about__container container">
+        <div class="about__content">
+            <div class="about__title">О нашей платформе</div>
+            <div class="about__text">
+                <span>ЦАИДМО предлагает медицинским профессионалам доступ к современным и актуальным образовательным ресурсам.</span>
+                <span>Наши курсы разработаны ведущими экспертами в различных медицинских областях и обеспечивают повышение квалификации, развитие навыков и углубление знаний.</span>
+                <span class="desktop">Мы стремимся поддерживать высокий уровень медицинской практики, предоставляя качественное обучение, удобное и доступное в любое время.</span>
+            </div>
+            <a href="#" class="about__btn">Узнать подробнее</a>
+        </div>
+        <div class="about__images">
+            <div class="about__icon"><img src="{% static 'images/icon-about-particles.svg' %}" alt="Particles"></div>
+            <div class="about__image"><img src="{% static 'images/about-image.png' %}" alt="Doctor image"></div>
+        </div>
+    </div>
+</section>
+<script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous">
+</script>
+<script src="{% static 'js/hideCard.js' %}"></script>
+<script src="{% static 'js/filterPostData.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,141 @@
+.footer {
+    color: #fff;
+    background-color: #002051;
+
+    &__container {
+        padding: 100px;
+
+        @media screen and (max-width: $md1) {
+            padding: 88px;
+        }
+
+        @media screen and (max-width: $md2) {
+            padding: 77px;
+        }
+
+        @media screen and (max-width: $md3) {
+            padding: 30px;
+        }
+
+        @media screen and (max-width: $md4) {
+            padding: 6.25vw;
+        }
+    }
+
+    &__content {
+        display: flex;
+        gap: 0px 150px;
+        margin-bottom: 80px;
+
+        @media screen and (max-width: $md1) {
+            gap: 0px 132px;
+            margin-bottom: 71px;
+        }
+
+        @media screen and (max-width: $md2) {
+            gap: 0px 115.5px;
+            margin-bottom: 62px;
+        }
+
+        @media screen and (max-width: $md3) {
+            flex-direction: column;
+            gap: 45.5px 0px;
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 9.375vw 0px;
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 150%;
+        max-width: 280px;
+        
+        @media screen and (max-width: $md1) {
+            font-size: 17.5px;
+            max-width: 250px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 15.5px;
+            max-width: 220px;
+        }
+
+        @media screen and (max-width: $md3) {
+            font-size: 18px;
+            max-width: 280px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 3.75vw;
+            max-width: 57.813vw;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 36px 120px;
+
+        @media screen and (max-width: $md1) {
+            gap: 32px 105px;
+        }
+
+        @media screen and (max-width: $md2) {
+            gap: 28px 93px;
+        }
+
+        @media screen and (max-width: $md3) {
+            gap: 21px 48px;
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 4.375vw 10vw;
+        }
+    }
+
+    &__li {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 100%;
+        color: #fff;
+
+        @media screen and (max-width: $md1) {
+            font-size: 14px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 12px;
+        }
+
+        @media screen and (max-width: $md3) {
+            font-size: 12px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 2.5vw;
+        }
+    }
+
+    &__lasttext {
+        font-size: 12px;
+
+        @media screen and (max-width: $md1) {
+            font-size: 10.5px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 9px;
+        }
+
+        @media screen and (max-width: $md3) {
+            font-size: 7.5px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 1.563vw;
+        }
+    }
+}
