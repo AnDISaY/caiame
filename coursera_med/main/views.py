@@ -114,7 +114,10 @@ def profile(request):
 
 def add_documents(request):
     if request.method == 'POST':
-        form = UserDocumentsForm(request.POST, request.FILES, instance=UserDocuments.objects.get(user=request.user))
+        try:
+            form = UserDocumentsForm(request.POST, request.FILES, instance=UserDocuments.objects.get(user=request.user))
+        except:
+            form = UserDocumentsForm(request.POST, request.FILES)
         if form.is_valid():
             form = form.save(commit=False)
             form.user = request.user
