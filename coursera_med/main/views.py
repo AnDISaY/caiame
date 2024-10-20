@@ -83,7 +83,10 @@ def sign_in(request):
 @login_required(login_url='/login')
 def profile(request):
     user_courses = UserCourse.objects.filter(user=request.user)
-    user_documents = UserDocuments.objects.get(user=request.user)
+    try:
+        user_documents = UserDocuments.objects.get(user=request.user)
+    except:
+        user_documents = None
 
     context = {'user_courses': user_courses, 'user': request.user, "user_documents": user_documents}
     try:

@@ -16,13 +16,15 @@
                     <div class="profile__head__title">{{ user.username }}</div>
                 </div>
                 <div class="profile__head__documents">
-                    {% if user_documents.status %}
-                        {% if user_documents.status == "consideration" %}
-                            <div class="profile__head__status" id="status_consideration">{{ user_documents.get_status_display }}</div>
-                        {% elif user_documents.status == "approved" %}
-                            <div class="profile__head__status" id="status_approved">{{ user_documents.get_status_display }}</div>
-                        {% else %}
-                            <div class="profile__head__status" id="status_denied">{{ user_documents.get_status_display }}</div>
+                    {% if user_documents %}
+                        {% if user_documents.status %}
+                            {% if user_documents.status == "consideration" %}
+                                <div class="profile__head__status" id="status_consideration">{{ user_documents.get_status_display }}</div>
+                            {% elif user_documents.status == "approved" %}
+                                <div class="profile__head__status" id="status_approved">{{ user_documents.get_status_display }}</div>
+                            {% else %}
+                                <div class="profile__head__status" id="status_denied">{{ user_documents.get_status_display }}</div>
+                            {% endif %}
                         {% endif %}
                     {% endif %}
                     <a href="{% url 'add_documents' %}" class="profile__head__edit">
