@@ -84,21 +84,21 @@
 
         @media screen and (max-width: $md4) {
             font-size: 5.625vw;
-            max-width: 72.875vw;
+            max-width: 74vw;
             margin-bottom: 8.125vw;
         }
     }
 
     &__tags {
         display: flex;  
-        gap: 0px 7px;
+        gap: 0px 10px;
 
         @media screen and (max-width: $md1) {
-            gap: 0px 6px;
+            gap: 0px 9px;
         }
 
         @media screen and (max-width: $md2) {
-            gap: 0px 5px;
+            gap: 0px 8px;
         }
 
         @media screen and (max-width: $md3) {
@@ -200,7 +200,7 @@
         justify-content: center;
         gap: 12px 0px;
         height: 100px;
-        padding: 0px 84.25px 0px 33px;
+        padding: 0px 70px 0px 30px;
         background-color: #fff;
 
         &:first-child {
@@ -213,13 +213,13 @@
             border-top-right-radius: 24px;
             border-bottom-right-radius: 24px;
             background-color: #2178FF;
-            padding-right: 63px;
+            padding-right: 30px;
         }
 
         @media screen and (max-width: $md1) {
             gap: 10px 0px;
             height: 88px;
-            padding: 0px 74px 0px 30px;
+            padding: 0px 61px 0px 26px;
 
             &:first-child {
                 border-top-left-radius: 21px;
@@ -229,14 +229,14 @@
             &:last-child {
                 border-top-right-radius: 21px;
                 border-bottom-right-radius: 21px;
-                padding-right: 55.5px;
+                padding-right: 26px;
             }
         }
 
         @media screen and (max-width: $md2) {
             gap: 9px 0px;
             height: 77px;
-            padding: 0px 64.5px 0px 26px;
+            padding: 0px 54px 0px 23px;
 
             &:first-child {
                 border-top-left-radius: 18.5px;
@@ -246,7 +246,7 @@
             &:last-child {
                 border-top-right-radius: 18.5px;
                 border-bottom-right-radius: 18.5px;
-                padding-right: 48px;
+                padding-right: 23px;
             }
         }
     }
@@ -605,7 +605,222 @@
         }
 
         @media screen and (max-width: $md4) {
-            font-size: 4.375vw;
+            width: 4.375vw;
+        }
+    }
+}
+
+.course-quizes {
+    margin-bottom: 140px;
+
+    @media screen and (max-width: $md1) {
+        margin-bottom: 120px;
+    }
+
+    @media screen and (max-width: $md2) {
+        margin-bottom: 105px;
+    }
+
+    @media screen and (max-width: $md3) {
+        margin-bottom: 60px;
+    }
+
+    @media screen and (max-width: $md4) {
+        margin-bottom: 12.5vw;
+    }
+
+    &__wrapper {
+        padding: 60px;
+        background-color: #fff;
+        border: 1px solid #BEBEBE;
+        border-radius: 18px;
+
+        @media screen and (max-width: $md1) {
+            padding: 53px;
+            border: 0.88px solid #BEBEBE;
+            border-radius: 16px;
+        }
+
+        @media screen and (max-width: $md2) {
+            padding: 46px;
+            border: 0.77px solid #BEBEBE;
+            border-radius: 14px;
+        }
+
+        @media screen and (max-width: $md3) {
+            background-color: transparent;
+            padding: 0px;
+            border: 0px;
+            border-radius: 0px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px 0px;
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 2.5vw 0px;
+        }
+    }
+
+    &__quiz {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 48px 20px 48px 0px;
+
+        &:first-child {
+            padding-top: 0;
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        @media screen and (max-width: $md1) {
+            padding: 42px 17.56px 42px 0px;
+        }
+
+        @media screen and (max-width: $md2) {
+            padding: 37px 15.42px 37px 0px;
+        }
+
+        @media screen and (max-width: $md3) {
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 9px;
+            
+            &:first-child {
+                padding: 30px;
+            }
+            
+            &:last-child {
+                padding: 30px;
+            }
+        }
+
+        @media screen and (max-width: $md4) {
+            padding: 6.25vw;
+            border-radius: 1.875vw;
+            
+            &:first-child {
+                padding: 6.25vw;
+            }
+            
+            &:last-child {
+                padding: 6.25vw;
+            }
+        }
+    }
+
+    &__quiz + &__quiz {
+        border-top: 1px solid #BEBEBE;
+
+        @media screen and (max-width: $md1) {
+            border-top: 0.88px solid #BEBEBE;
+        }
+
+        @media screen and (max-width: $md2) {
+            border-top: 0.77px solid #BEBEBE;
+        }
+
+        @media screen and (max-width: $md3) {
+            border: 0px;
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 80%;
+
+        @media screen and (max-width: $md1) {
+            font-size: 21px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 18.5px;
+        }
+
+        @media screen and (max-width: $md3) {
+            font-size: 18px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 3.75vw;
+        }
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        gap: 0px 32px;
+
+        @media screen and (max-width: $md1) {
+            gap: 0px 28px;
+        }
+
+        @media screen and (max-width: $md2) {
+            gap: 0px 25px;
+        }
+
+        @media screen and (max-width: $md3) {
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 18px 0px;
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 3.75vw 0px;
+        }
+    }
+
+    &__status {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 75%;
+        color: #BEBEBE;
+
+        @media screen and (max-width: $md1) {
+            font-size: 10.5px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 9px;
+        }
+
+        @media screen and (max-width: $md3) {
+            font-size: 12px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 2.5vw;
+        }
+    }
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 24px;
+            height: 100%;
+
+            @media screen and (max-width: $md1) {
+                width: 21px;
+            }
+    
+            @media screen and (max-width: $md2) {
+                width: 18.5px;
+            }
+    
+            @media screen and (max-width: $md3) {
+                width: 21px;
+            }
+    
+            @media screen and (max-width: $md4) {
+                width: 4.375vw;
+            }
         }
     }
 }

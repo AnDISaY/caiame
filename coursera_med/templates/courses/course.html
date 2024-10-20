@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load counter %}
 
 {% block title %}{{ object.name }}{% endblock %}
 
@@ -94,6 +95,31 @@
                 </div>
                 <div class="course-modules__icon"><img src="{% static 'images/icon-arrow-blue.svg' %}" alt="Blue arrow icon"></div>
             </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="course-quizes">
+    <div class="course-quizes__container container">
+        <div class="course-quizes__wrapper">
+            {% set 1 as count %}
+            {% for quiz in quizes %}
+                <a href="{% url 'quiz' quiz.id %}" class="course-quizes__quiz">
+                    {% if count > 9 %}
+                        <div class="course-quizes__title">Тестирование #0{{ count }}</div>
+                    {% else %}
+                        <div class="course-quizes__title">Тестирование #00{{ count }}</div>
+                    {% endif %}
+                    <div class="course-quizes__content">
+                        {% if quiz.result == None %}
+                            <div class="course-quizes__status">Не начато</div>
+                        {% else %}
+                            <div class="course-quizes__status" style="color: #2178FF;">Завершено</div>
+                        {% endif %}
+                        <div class="course-quizes__icon"><img src="{% static 'images/icon-arrow-blue.svg' %}" alt="Blue arrow icon"></div>
+                    </div>
+                </a>
+                {% add count as count %}
             {% endfor %}
         </div>
     </div>

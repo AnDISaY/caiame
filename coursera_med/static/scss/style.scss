@@ -36,6 +36,11 @@ body {
     overflow-x: hidden;
     letter-spacing: -0.48px;
 
+    
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
     @media screen and (max-width: $md3) {
         letter-spacing: -0.16px;
     }
@@ -78,10 +83,13 @@ button {
 @import "_success";
 @import "_login";
 @import "_profile";
+@import "add_documents";
 
 @import "_course";
 @import "_module";
 @import "_lecture";
+
+@import "_quiz";
 //</HTML>
 
 //<FOOTER>

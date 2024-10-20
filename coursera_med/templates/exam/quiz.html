@@ -1,23 +1,79 @@
 {% extends 'base.html' %}
+{% load counter %}
 
 {% block title %}{{ quiz.name }}{% endblock %}
 
 {% block content %}
-{{ quiz.name }}
-<form id="quiz-form" method="post">
-    {% csrf_token %}
-    <div id="quiz-box"></div>
-    <button type="submit">submit</button>
-</form>
+<section class="quiz">
+    {% if result_message is not None %}
+    <div class="success-message">{{ result_message }}</div>
+    {% endif %}
+    {% if result_message_error is not None %}
+    <div class="success-message success-message-error">{{ result_message_error }}</div>
+    {% endif %}
+    <div class="quiz__container container">
+        <div class="quiz__course__title-mobile">{{ quiz.course.name }}</div>
+        <div class="quiz__wrapper">
+            <div class="quiz__title-block">
+                <div class="quiz__title">{{ quiz.name }}</div>
+                <div class="quiz__subheading">Тестирование</div>
+            </div>
+            <div class="quiz__test-block">
+                <form id="quiz__form" method="post">
+                    {% csrf_token %}
+                    {% set 1 as count %}
+                    {% for question in quiz.questions.all %}
+                        <div class="quiz__question">
+                            <div class="quiz__question__head">
+                                <div class="quiz__question__text">{{ count }}. {{ question.text }}</div>
+                                {% if question.score == 1 %}
+                                    <div class="quiz__question__score">{{ question.score }} балл</div>
+                                {% elif question.score > 1 and question.score < 5 %}
+                                    <div class="quiz__question__score">{{ question.score }} балла</div>
+                                {% else %}
+                                    <div class="quiz__question__score">{{ question.score }} баллов</div>
+                                {% endif %}
+                            </div>
+                            <div class="quiz__answers">
+                                {% if question.correct_count > 1 %}
+                                    {% for answer in question.answers.all %}
+                                        <label class="quiz__answer">
+                                            <input type="checkbox" name="{{ question.text }}" value="{{ answer.text }}">
+                                            <span>{{ answer.text }}</span>
+                                            <div class="quiz__checkmark"></div>
+                                        </label>
+                                    {% endfor %}
+                                {% else %}
+                                    {% for answer in question.answers.all %}
+                                    <label class="quiz__answer">
+                                        <input type="radio" name="{{ question.text }}" value="{{ answer.text }}" required>
+                                        <span>{{ answer.text }}</span>
+                                        <div class="quiz__checkmark"></div>
+                                    </label>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% add count as count %}
+                    {% endfor %}
+                    <div class="quiz__btns">
+                        {% if result == None %}
+                            <button type="submit" class="quiz__btn btn-active">Сдать тестирование</button>
+                            <div class="quiz__btn btn-inactive">Показать результаты</div>
+                        {% else %}
+                            <div class="quiz__btn btn-inactive">Сдать тестирование</div>
+                            <a href="{% url 'quiz_results' pk=quiz.pk %}" class="quiz__btn btn-active">Показать результаты</a>
+                        {% endif %}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>  
+</section>
 
 {% endblock %}
 
-{% block script %}
-
-    
-{% endblock %}
-
-<script>
+<!-- <script>
 const quizBox = document.getElementById('quiz-box')
 const url = window.location.href
 
@@ -84,4 +140,4 @@ $.ajax({
     error: function(error) {
         console.log(error)},
 })
-</script>
+</script> -->

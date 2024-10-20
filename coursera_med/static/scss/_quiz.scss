@@ -1,0 +1,538 @@
+.quiz {
+    margin: 60px 0px 140px;
+
+    @media screen and (max-width: $md1) {
+        margin: 53px 0px 123px;
+    }
+
+    @media screen and (max-width: $md2) {
+        margin: 46px 0px 108px;
+    }
+
+    @media screen and (max-width: $md3) {
+        margin: 52.5px 0px 60px;
+    }
+
+    @media screen and (max-width: $md4) {
+        margin: 10.938vw 0px 12.5vw;
+    }
+
+    &__course__title-mobile {
+        display: none;
+
+        @media screen and (max-width: $md3) {
+            display: block;
+            margin-bottom: 59.5px;
+            font-weight: 700;
+            font-size: 27px;
+            line-height: 140%;
+            max-width: 355px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 5.625vw;
+            margin-bottom: 12.5vw;
+            max-width: 74vw;
+        }
+    }
+
+    &__wrapper {
+        padding: 70px 60px;
+        background-color: #fff;
+        border-radius: 18px;
+
+        @media screen and (max-width: $md1) {
+            padding: 62px 53px;
+            border-radius: 16px;
+        }
+
+        @media screen and (max-width: $md2) {
+            padding: 54px 46px;
+            border-radius: 14px;
+        }
+
+        @media screen and (max-width: $md3) {
+            padding: 45px 30px;
+            border-radius: 9px;
+        }
+
+        @media screen and (max-width: $md4) {
+            padding: 9.375vw 6.25vw;
+            border-radius: 1.875vw;
+        }
+    }
+
+    &__title-block {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 80px;
+        border-bottom: 1px solid #BEBEBE;
+
+        @media screen and (max-width: $md1) {
+            padding-bottom: 70px;
+            border-bottom: 0.88px solid #BEBEBE;
+        }
+
+        @media screen and (max-width: $md2) {
+            padding-bottom: 62px;
+            border-bottom: 0.77px solid #BEBEBE;
+        }
+
+        @media screen and (max-width: $md3) {
+            padding-bottom: 46.5px;
+            border-bottom: 0.9px solid #BEBEBE;
+        }
+
+        @media screen and (max-width: $md4) {
+            padding-bottom: 9.375vw;
+            border-bottom: 0.187vw solid #BEBEBE;
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 160%;
+        max-width: 650px;
+
+        @media screen and (max-width: $md1) {
+            font-size: 28px;
+            max-width: 570px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 25px;
+            max-width: 500px;
+        }
+
+        @media screen and (max-width: $md3) {
+            font-size: 24px;
+            max-width: 325px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 5vw;
+            max-width: 68.75vw;
+        }
+    }
+
+    &__subheading {
+        align-self: start;
+        font-weight: 600;
+        font-size: 10px;
+        line-height: 75%;
+        letter-spacing: 0.64px;
+        color: #2178FF;
+        padding: 12px 17px;
+        background-color: #F3F5FB;
+        border-radius: 4px;
+        text-transform: uppercase;
+
+        @media screen and (max-width: $md1) {
+            font-size: 9px;
+            padding: 10.5px 15px;
+            border-radius: 3.5px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 8px;
+            padding: 9px 13px;
+            border-radius: 3px;
+        }
+
+        @media screen and (max-width: $md3) {
+            display: none;
+        }
+    }
+
+    &__test-block {
+        padding-top: 60px;
+
+        @media screen and (max-width: $md1) {
+            padding-top: 53px;
+        }
+
+        @media screen and (max-width: $md2) {
+            padding-top: 46px;
+        }
+
+        @media screen and (max-width: $md3) {
+            padding-top: 45px;
+        }
+
+        @media screen and (max-width: $md4) {
+            padding-top: 9.375vw;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 60px 0px;
+
+        @media screen and (max-width: $md1) {
+            gap: 53px 0px;
+        }
+
+        @media screen and (max-width: $md2) {
+            gap: 46px 0px;
+        }
+
+        @media screen and (max-width: $md3) {
+            gap: 45px 0px;
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 9.375vw 0px;
+        }
+    }
+
+    &__question {
+        display: flex;
+        flex-direction: column;
+        gap: 6px 0px;
+
+        @media screen and (max-width: $md1) {
+            gap: 5px 0px;
+        }
+
+        @media screen and (max-width: $md2) {
+            gap: 4px 0px;
+        }
+
+        @media screen and (max-width: $md3) {
+            gap: 10.5px 0px;
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 2.188vw 0px;
+        }
+
+        &__head {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__text {
+            font-weight: 800;
+            font-size: 18px;
+            line-height: 80%;
+
+            @media screen and (max-width: $md1) {
+                font-size: 16px;
+            }
+
+            @media screen and (max-width: $md2) {
+                font-size: 14px;
+            }
+
+            @media screen and (max-width: $md3) {
+                font-size: 15px;
+            }
+
+            @media screen and (max-width: $md4) {
+                font-size: 3.125vw;
+            }
+        }
+
+        &__score {
+            font-weight: 600;
+            font-size: 10px;
+            line-height: 75%;
+            letter-spacing: 0px;
+            color: #2178FF;
+            padding: 12px 17px;
+            background-color: #F3F5FB;
+            border-radius: 4px;
+
+            @media screen and (max-width: $md1) {
+                font-size: 9px;
+                padding: 10.5px 15px;
+                border-radius: 3.5px;
+            }
+    
+            @media screen and (max-width: $md2) {
+                font-size: 8px;
+                padding: 9px 13px;
+                border-radius: 3px;
+            }
+
+            @media screen and (max-width: $md3) {
+                font-size: 9px;
+                padding: 6px 9px;
+                border-radius: 3px;
+            }
+
+            @media screen and (max-width: $md4) {
+                font-size: 1.875vw;
+                padding: 1.25vw 1.875vw;
+                border-radius: 0.625vw;
+            }
+        }
+    }
+
+    &__answers {
+        display: flex;
+        flex-direction: column;
+        gap: 20px 0px;
+
+        @media screen and (max-width: $md1) {
+            gap: 14px 0px;
+        }
+
+        @media screen and (max-width: $md2) {
+            gap: 12px 0px;
+        }
+
+        @media screen and (max-width: $md3) {
+            gap: 12px 0px;
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 2.5vw 0px;
+        }
+    }
+
+    &__answer {
+        display: flex;
+        align-items: center;
+        gap: 0px 14px;
+
+        @media screen and (max-width: $md1) {
+            gap: 0px 12px;
+        }
+
+        @media screen and (max-width: $md2) {
+            gap: 0px 11px;
+        }
+
+        @media screen and (max-width: $md3) {
+            gap: 0px 12px;
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 0px 2.5vw;
+        }
+
+        span {
+            font-weight: 600;
+            line-height: 80%;
+            font-size: 14px;
+
+            @media screen and (max-width: $md1) {
+                font-size: 12px;
+            }
+
+            @media screen and (max-width: $md2) {
+                font-size: 11px;
+            }
+
+            @media screen and (max-width: $md3) {
+                font-size: 12px;
+            }
+
+            @media screen and (max-width: $md4) {
+                font-size: 2.5vw;
+            }
+        }
+
+        input {
+            margin: 0;
+            width: 14px;
+            height: 14px;
+
+            @media screen and (max-width: $md1) {
+                width: 12px;
+                height: 12px;
+            }
+
+            @media screen and (max-width: $md2) {
+                width: 11px;
+                height: 11px;
+            }
+
+            @media screen and (max-width: $md3) {
+                width: 16.5px;
+                height: 16.5px;
+            }
+
+            @media screen and (max-width: $md4) {
+                width: 3.438vw;
+                height: 3.438vw;
+            }
+        }
+    }
+
+    &__btns {
+        display: flex;
+        align-items: center;
+        gap: 0px 10px;
+
+        @media screen and (max-width: $md1) {
+            gap: 0px 8.5px;
+        }
+
+        @media screen and (max-width: $md2) {
+            gap: 0px 8px;
+        }
+
+        @media screen and (max-width: $md3) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 9px 0px;
+        }
+
+        @media screen and (max-width: $md4) {
+            gap: 1.875vw 0px;
+        }
+    }
+
+    &__btn {
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 75%;
+        letter-spacing: -0.32px;
+        padding: 14px 24px;
+        border-radius: 4px;
+
+        @media screen and (max-width: $md1) {
+            font-size: 9px;
+            padding: 12px 21px;
+            border-radius: 3.5px;
+        }
+
+        @media screen and (max-width: $md2) {
+            font-size: 8px;
+            padding: 11px 18.5px;
+            border-radius: 3px;
+        }
+
+        @media screen and (max-width: $md3) {
+            font-size: 12px;
+            padding: 12px 24px;
+            border-radius: 6px;
+        }
+
+        @media screen and (max-width: $md4) {
+            font-size: 2.5vw;
+            padding: 2.5vw 5vw;
+            border-radius: 1.25vw;
+        }
+    }
+
+    .btn-active {
+        color: #fff;
+        background-color: #2178FF;
+        cursor: pointer;
+    }
+
+    .btn-inactive {
+        color: #BEBEBE;
+        background-color: #F3F5FB;
+        cursor: not-allowed;
+    }
+
+    /* Hide the browser's default radio button */
+    // &__answer input {
+    //     position: absolute;
+    //     display: none;
+    //     cursor: pointer;
+    // }
+
+    // /* Create a custom radio button */
+    // &__checkmark {
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     height: 14px;
+    //     width: 14px;
+    //     border-radius: 50%;
+    //     border: 1px solid #909090;
+    //     box-sizing: border-box;
+    // }
+
+    // /* On mouse-over, add a grey background color */
+    // &__answer:hover input ~ &__checkmark {
+    //     border: 1px solid #2178FF;
+    // }
+
+    // /* When the radio button is checked, add a blue background */
+    // &__answer input:checked ~ &__checkmark {
+    //     border: 1px solid #2178FF;
+    // }
+
+    // /* Create the indicator (the dot/circle - hidden when not checked) */
+    // &__checkmark:after {
+    //     content: "";
+    //     position: absolute;
+    //     display: none;
+    // }
+
+    // /* Show the indicator (dot/circle) when checked */
+    // &__answer input:checked ~ &__checkmark:after {
+    //     display: block;
+    // }
+
+    // /* Style the indicator (dot/circle) */
+    // &__answer &__checkmark:after {
+    //     top: 50%;
+    //     left: 50%;
+    //     transform: translate(-45%, -55%);
+    //     width: 8px;
+    //     height: 8px;
+    //     border-radius: 50%;
+    //     background: #2178FF;
+    // } 
+}
+
+
+.correct_answer {
+    pointer-events: none;
+    accent-color: #56a703;
+    background-color: #56a703;
+}
+
+.correct_text {
+    color: #56a703;
+}
+
+.correct_btn {
+    color: #fff;
+    background-color: #56a703;
+}
+
+.incorrect_text {
+    color: #FF4A4A;
+}
+
+.incorrect_btn {
+    color: #fff;
+    background-color: #FF4A4A;
+}
+
+.incorrect_answer {
+    pointer-events: none;
+    accent-color: #FF4A4A;
+    background-color: #FF4A4A;
+}
+
+.results-btn {
+    font-size: 16px;
+    cursor: default !important;
+
+    @media screen and (max-width: $md1) {
+        font-size: 14px;
+    }
+
+    @media screen and (max-width: $md2) {
+        font-size: 12px;
+    }
+
+    @media screen and (max-width: $md3) {
+        font-size: 18px;
+    }
+
+    @media screen and (max-width: $md4) {
+        font-size: 3.75vw;
+    }
+}

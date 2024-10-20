@@ -4,6 +4,7 @@ from django.views.generic import CreateView, UpdateView, ListView, DeleteView, D
 
 from .forms import CourseForm, ModuleForm, LectureForm, UserCourseForm
 from .models import Course, Module, Lecture, UserCourse, UserLecture
+from exam.models import Result
 
 
 class CoursesListView(ListView):
@@ -24,21 +25,32 @@ class CoursesListView(ListView):
 
 
 def course_detail_view(request, pk):
-    obj = Course.objects.get(pk=pk)
+    object = Course.objects.get(pk=pk)
     relation_is_exists = False
-    # print(UserCourse.objects.filter(course=obj, user=request.user).course.lectures.all())
+
+    quizes_queryset = object.quizes.filter(course=object)
+    quizes = list(object.quizes.filter(course=object).values())
+
+    for index in range(0, len(quizes)):
+        try:
+            result = Result.objects.get(quiz=quizes_queryset[index], user=request.user)
+        except:
+            result = None
+        quizes[index]['result'] = result
+
+
     if request.user.is_authenticated:
-        if UserCourse.objects.filter(course=obj, user=request.user):
+        if UserCourse.objects.filter(course=object, user=request.user):
             relation_is_exists = True
         if request.method == 'POST' and not relation_is_exists:
-            us = UserCourse.objects.create(course=obj, user=request.user, status='started')
+            us = UserCourse.objects.create(course=object, user=request.user, status='started')
             for module in us.course.modules.all():
                 for lecture in module.lectures.all():
                     UserLecture.objects.create(lecture=lecture, module=module, user=request.user)
-            return render(request, 'courses/course.html', {'object': obj,
+            return render(request, 'courses/course.html', {'object': object,
                                                                           'relation_is_exists': relation_is_exists, 'user': request.user.is_authenticated,})
-    return render(request, 'courses/course.html', {'object': obj,
-                                                                  'relation_is_exists': relation_is_exists, 'user': request.user.is_authenticated,})
+    return render(request, 'courses/course.html', {'object': object,
+                                                                  'relation_is_exists': relation_is_exists, 'user': request.user.is_authenticated, 'quizes': quizes,})
 
 
 def create_course_view(request):

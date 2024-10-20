@@ -1,0 +1,32 @@
+.documents {
+  margin: 60px 0px 140px;
+}
+.documents__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 57px 0px;
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+}
+.documents__title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px 0px;
+}
+.documents__subheading {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 75%;
+  color: #BEBEBE;
+}
+.documents__title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 75%;
+  color: #2178FF;
+}
+.documents__form {
+  display: flex;
+  justify-content: space-between;
+}/*# sourceMappingURL=add_documents.css.map */

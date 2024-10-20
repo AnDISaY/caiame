@@ -7,18 +7,45 @@
 <section class="signup">
     <div class="signup__container container">
         <div class="signup__title">Укажите почту, логин и пароль чтобы зарегистрироваться</div>
-        <form method="post" class="signup__form">
-            {% csrf_token %}
-            {{ form.email }}
-            {{ form.username }}
-            {{ form.password1 }}
-            {{ form.password2 }}
-            <div class="signup__under-block">
-                <div class="signup__form__text">Продолжая, я принимаю Политику конфиденциальности и Условия использования ПНМО</div>
-                <button type="submit" class="signup__form__btn">Продолжить</button>
-            </div>
-            {{ form.errors }}
-        </form>
+        {% if form.errors %}
+            <form method="post" class="signup__form form-errors">
+                {% csrf_token %}
+                {{ form.email }}
+                {{ form.username }}
+                {{ form.password1 }}
+                {{ form.password2 }}
+                <div class="signup__under-block">
+                    <div class="signup__form__text">{{ form.errors }}</div>
+                    <button type="submit" class="signup__form__btn">Продолжить</button>
+                </div>
+            </form>
+        {% else %}
+            <form method="post" class="signup__form">
+                {% csrf_token %}
+                {{ form.email }}
+                {{ form.username }}
+                {{ form.password1 }}
+                {{ form.password2 }}
+                <div class="signup__under-block">
+                    <div class="signup__form__text">Продолжая, я принимаю Политику конфиденциальности и Условия использования ПНМО</div>
+                    <button type="submit" class="signup__form__btn">Продолжить</button>
+                </div>
+            </form>
+        {% endif %}
     </div>
 </section>
+<script>
+    error = document.querySelector('.errorlist');
+    errorUls = document.querySelectorAll('.errorlist ul');
+
+    errorUls.forEach(ul => ul.remove())
+    names = error.innerText.replaceAll("\n", " ").split(" ")
+    for (index in names) {
+        input = document.getElementsByName(names[index])
+        input[0].classList.add("error-field")
+    }
+
+    error.innerHTML = "";
+    errorUls.forEach(ul => error.innerHTML += ul.innerHTML)
+</script>
 {% endblock %}

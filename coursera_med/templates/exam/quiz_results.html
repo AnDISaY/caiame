@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+{% load counter %}
+{% load get_dict_filter %}
+
+{% block title %}{{ quiz.name }}{% endblock %}
+
+{% block content %}
+<section class="quiz">
+    <div class="quiz__container container">
+        <div class="quiz__course__title-mobile">{{ quiz.course.name }}</div>
+        <div class="quiz__wrapper">
+            <div class="quiz__title-block">
+                <div class="quiz__title">{{ quiz.name }}</div>
+                <div class="quiz__subheading">Тестирование</div>
+            </div>
+            <div class="quiz__test-block">
+                <form id="quiz__form" method="post">
+                    {% csrf_token %}
+                    {% set 1 as count %}
+                    {% for question in quiz.questions.all %}
+                        <div class="quiz__question">
+                            <div class="quiz__question__head">
+                                <div class="quiz__question__text">{{ count }}. {{ question.text }}</div>
+                                {% if question.score == 1 %}
+                                    <div class="quiz__question__score">{{ question.score }} балл</div>
+                                {% elif question.score > 1 and question.score < 5 %}
+                                    <div class="quiz__question__score">{{ question.score }} балла</div>
+                                {% else %}
+                                    <div class="quiz__question__score">{{ question.score }} баллов</div>
+                                {% endif %}
+                            </div>
+                            <div class="quiz__answers">
+                                {% if question.correct_count > 1 %}
+                                    {% set 0 as answer_count %}
+                                    {% set 0 as correct_given %}
+                                    {% set 0 as correct_answered %}
+                                    {% for answer in question.answers.all %}
+                                    {% if answer.text in result_answers.answer_dict|hash:question.text %}
+                                        {% if answer.is_correct %}
+                                            <label class="quiz__answer">
+                                                <input class="correct_answer" checked type="checkbox" name="{{ question.text }}" value="{{ answer.text }}">
+                                                <span class="correct_text">{{ answer.text }}</span>
+                                                <div class="quiz__checkmark"></div>
+                                            </label>
+                                            {% add correct_given as correct_given %}
+                                            {% add correct_answered as correct_answered %}
+                                        {% else %}
+                                            <label class="quiz__answer">
+                                                <input class="incorrect_answer" checked type="checkbox" name="{{ question.text }}" value="{{ answer.text }}">
+                                                <span class="incorrect_text">{{ answer.text }}</span>
+                                                <div class="quiz__checkmark"></div>
+                                            </label>
+                                            {% sub correct_answered as correct_answered %}
+                                        {% endif %}
+                                    {% add answer_count as answer_count %}
+                                    {% else %}
+                                        {% if answer.is_correct %}
+                                            <label class="quiz__answer">
+                                                <input class="correct_answer" checked type="checkbox" name="{{ question.text }}" value="{{ answer.text }}">
+                                                <span class="incorrect_text">{{ answer.text }}</span>
+                                                <div class="quiz__checkmark"></div>
+                                            </label>
+                                        {% else %}
+                                            <label class="quiz__answer">
+                                                <input disabled type="checkbox" name="{{ question.text }}" value="{{ answer.text }}">
+                                                <span>{{ answer.text }}</span>
+                                                <div class="quiz__checkmark"></div>
+                                            </label>
+                                        {% endif %}
+                                    {% endif %}
+                                    {% if correct_given == correct_answered and answer_count == question.answers.all|length %}
+                                        <div class="correct_radio" style="display: none;"></div>
+                                    {% else %}
+                                        <div class="incorrect_radio" style="display: none;"></div>
+                                    {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    {% for answer in question.answers.all %}
+                                    {% if answer.text == result_answers.answer_dict|hash:question.text|index:0 %}
+                                        {% if answer.is_correct == True %}
+                                            <label class="quiz__answer">
+                                                <input class="correct_answer correct_radio" checked type="radio" name="{{ question.text }}" value="{{ answer.text }}">
+                                                <span class="correct_text">{{ answer.text }}</span>
+                                                <div class="quiz__checkmark"></div>
+                                            </label>
+                                        {% else %}
+                                            <label class="quiz__answer">
+                                                <input class="incorrect_answer incorrect_radio" checked type="radio" name="{{ question.text }}" value="{{ answer.text }}">
+                                                <span class="incorrect_text">{{ answer.text }}</span>
+                                                <div class="quiz__checkmark"></div>
+                                            </label>
+                                        {% endif %}
+                                    {% else %}
+                                        {% if answer.is_correct == True %}
+                                            <label class="quiz__answer">
+                                                <input class="correct_answer incorrect_radio" checked type="radio" name="{{ question.text }} correct" value="{{ answer.text }}">
+                                                <span class="correct_text">{{ answer.text }}</span>
+                                                <div class="quiz__checkmark"></div>
+                                            </label>
+                                        {% else %}
+                                            <label class="quiz__answer">
+                                                <input disabled type="radio" name="{{ question.text }}" value="{{ answer.text }}">
+                                                <span>{{ answer.text }}</span>
+                                                <div class="quiz__checkmark"></div>
+                                            </label>
+                                        {% endif %}
+                                    {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% add count as count %}
+                    {% endfor %}
+                    <div class="quiz__btns">
+                        <div class="quiz__btn btn-active results-btn">{{ result.score }}/{{ max_score }}</div>
+                        <a href="{% url 'course-detail' pk=quiz.course.pk %}" class="quiz__btn btn-inactive" style="color: #2178FF; cursor: pointer;">Вернуться обратно</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>  
+</section>
+<script>
+    correctQuestions = document.querySelectorAll('.correct_radio');
+    correctQuestions.forEach(question => {
+        question = question.closest('.quiz__question');
+        correctQuestionText = question.querySelector('.quiz__question__text');
+        correctQuestionScore = question.querySelector('.quiz__question__score');
+
+        correctQuestionText.classList.add('correct_text');
+        correctQuestionScore.classList.add('correct_btn');
+    })
+    
+    incorrectQuestions = document.querySelectorAll('.incorrect_radio');
+    incorrectQuestions.forEach(question => {
+        question = question.closest('.quiz__question');
+        incorrectQuestionText = question.querySelector('.quiz__question__text');
+        incorrectQuestionScore = question.querySelector('.quiz__question__score');
+
+        incorrectQuestionText.classList.add('incorrect_text');
+        incorrectQuestionScore.classList.add('incorrect_btn');
+    })
+
+    // correctQuestion = document.querySelectorAll('.incorrect_radio').closest('.quiz__question');
+    // correctQuestionText = correctQuestion.querySelector('.quiz__question__text');
+    // correctQuestionScore = correctQuestion.querySelector('.quiz__question__score');
+
+    // correctQuestionText.classList.add('incorrect_text');
+    // correctQuestionScore.classList.add('incorrect_btn');
+
+
+
+</script>
+{% endblock %}
+
+<!-- <script>
+const quizBox = document.getElementById('quiz-box')
+const url = window.location.href
+
+$.ajax({
+    type: 'GET',
+    url: `${url}data`,
+    success: function(response) {
+        const data = response.data
+        data.forEach(el => {
+            for (const [question, answers] of Object.entries(el)){
+                quizBox.innerHTML += `
+                    <hr>
+                    <div>
+                        ${question}
+                    </div>
+                `
+                answers.forEach(answer =>{
+                    quizBox.innerHTML += `
+                        <div>
+                            <input type="radio" class="ans" id="${question}-${answer}" name="${question}" value="${answer}">
+                            <label for="${question}">${answer}</label>
+                        </div>`})
+            }
+        })
+        const quizForm = document.getElementById("quiz-form")
+        const csrf = document.getElementsByName("csrfmiddlewaretoken")
+
+        const sendData = () => {
+            const elements = [...document.getElementsByClassName("ans")]
+            const data = {}
+            data['csrfmiddlewaretoken'] = csrf[0].value
+            elements.forEach(el => {
+                if (el.checked) {
+                    data[el.name] = el.value
+                } else {
+                    if (!data[el.name]) {
+                        data[el.name] = null
+                    }
+                }
+            })
+
+            $.ajax({
+                type: 'POST',
+                url: `${url}save/`,
+                data: data,
+                success: function(response) {
+                    const results = response.results
+                    console.log(results)
+                    quizForm.classList.add('not-visible')
+                },
+                error: function(error) {
+                    console.log(error)
+                }
+            })
+        }
+
+
+        quizForm.addEventListener('submit', e => {
+            e.preventDefault()
+
+            sendData()
+        })
+    },
+    error: function(error) {
+        console.log(error)},
+})
+</script> -->

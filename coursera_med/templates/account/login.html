@@ -12,9 +12,9 @@
             {{ form.username }}
             {{ form.password }}
             <div class="login__under-block">
+                <div class="login__form__text">{{ error }}</div>
                 <button type="submit" class="login__form__btn">Продолжить</button>
             </div>
-            {{ form.errors }}
         </form>
     </div>
 </section>

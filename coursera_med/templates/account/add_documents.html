@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Добавить документы{% endblock %}
+
+{% block content %}
+<section class="documents">
+    <div class="documents__container container">
+        <div class="documents__wrapper">
+            <div class="documents__title-block">
+                <div class="documents__subheading">Личные данные</div>
+                <div class="documents__title">{{ user.username }}</div>
+            </div>
+            <form method="post" class="documents__form" enctype="multipart/form-data">
+                <div class="documents__content">
+                    {% csrf_token %}
+                    <div class="documents__column">
+                        <div class="documents__column__text">Паспорт</div>
+                        <div class="documents__column__block">
+                            <div class="documents__column__row">
+                                <label class="documents__label" for="passport_front">Лицевая сторона
+                                    {{ form.passport_front }}</label>
+                            </div>
+                            <div class="documents__column__row">
+                                <label class="documents__label" for="passport_back">Обратная сторона
+                                    {{ form.passport_back }}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="documents__column">
+                        <div class="documents__column__text">Диплом</div>
+                        <div class="documents__column__block">
+                            <label class="documents__label" for="diploma" id="id_diploma_label">Разворот
+                                {{ form.diploma }}</label>
+                        </div>
+                    </div>
+                    <div class="documents__column">
+                        <div class="documents__column__text">Сертификат<span>по специальности</span></div>
+                        <div class="documents__column__block">
+                            <label class="documents__label" for="certificate" id="id_certificate_label">
+                                {{ form.certificate }}</label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="documents__btn">Сохранить данные</button>
+                {{ form.errors }}
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

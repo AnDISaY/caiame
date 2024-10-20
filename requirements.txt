@@ -1,7 +1,0 @@
-django
-psycopg2-binary
-python-decouple
-django-crispy-forms
-crispy-bootstrap5
-pillow
-mysqlclient

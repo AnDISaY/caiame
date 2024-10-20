@@ -1,14 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Лчиный кабинет{% endblock %}
+{% block title %}Личный кабинет{% endblock %}
 
 {% block content %}
 <section class="profile">
+    {% if documents_message is not None %}
+    <div class="profile__success-message">{{ documents_message }}</div>
+    {% endif %}
     <div class="profile__container container">
-        <div class="profile__title">Мой профиль</div>
-        <div class="profile__description">Управление вашим профилем и курсами. Отслеживайте прогресс обучения и получайте сертификаты</div>
-        <a href="{% url 'logout' %}" class="profile__btn">Выйти</a>
+        <div class="profile__wrapper">
+            <div class="profile__head">
+                <div class="profile__head__content">
+                    <div class="profile__head__subheading">Личные данные</div>
+                    <div class="profile__head__title">{{ user.username }}</div>
+                </div>
+                <div class="profile__head__documents">
+                    {% if user_documents.status %}
+                        {% if user_documents.status == "consideration" %}
+                            <div class="profile__head__status" id="status_consideration">{{ user_documents.get_status_display }}</div>
+                        {% elif user_documents.status == "approved" %}
+                            <div class="profile__head__status" id="status_approved">{{ user_documents.get_status_display }}</div>
+                        {% else %}
+                            <div class="profile__head__status" id="status_denied">{{ user_documents.get_status_display }}</div>
+                        {% endif %}
+                    {% endif %}
+                    <a href="{% url 'add_documents' %}" class="profile__head__edit">
+                        <div class="profile__head__icon"><img src="{% static 'images/icon-profile-edit.svg' %}" alt="Edit icon"></div>
+                        <div class="profile__head__text">Редактировать подтверждающие личные документы</div>
+                    </a>
+                </div>
+            </div>
+            <div class="profile__bottom">
+                <div class="profile__bottom__content">
+                    <div class="profile__bottom__title">Мой профиль</div>
+                    <div class="profile__bottom__description">Управление вашим профилем и курсами. Отслеживайте прогресс обучения и получайте сертификаты.</div>
+                </div>
+                <a href="{% url 'logout' %}" class="profile__bottom__btn">Выйти</a>
+            </div>
+        </div>
     </div>
 </section>
 <section class="user-courses">
