@@ -20,3 +20,6 @@ class UserDocuments(models.Model):
     class Meta:
         verbose_name = 'Документ студента'
         verbose_name_plural = 'Документы студента'
+
+    def __str__(self):
+        return f'{self.user} -- {self.status}'

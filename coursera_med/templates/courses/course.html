@@ -27,7 +27,7 @@
                     <div class="course-hero__tag__title">{{ object.get_language_display }}</div>
                     <div class="course-hero__tag__under">— язык обучения</div>
                 </div>
-                {% if not relation_is_exists %}
+                <!-- {% if not relation_is_exists %}
                 <div class="course-hero__tag" style="cursor: pointer;">
                     <form method="post">
                         {% csrf_token %}
@@ -38,7 +38,7 @@
                 <div class="course-hero__tag" style="background-color: #fff;">
                     <div class="course-hero__btn" style="color: #2178FF;">Курс приобретен</div>
                 </div>
-                {% endif %}
+                {% endif %} -->
             </div>
             <div class="course-hero__tags-mobile" style="background-image: url({{ object.image.url }}); background-repeat: no-repeat; background-size: cover;">
                 <div class="course-hero__tags-mobile__blackout"></div>
@@ -60,7 +60,7 @@
                         <div class="course-hero__tag__under">— язык обучения</div></div>
                 </div>
             </div>
-            <div class="course-hero__btn-mobile">
+            <!-- <div class="course-hero__btn-mobile">
                 {% if not relation_is_exists %}
                 <form method="post">
                     {% csrf_token %}
@@ -68,9 +68,8 @@
                 </form>
                 {% else %}
                 <div class="course-hero__btn" style="background-color: #61C000;">Курс приобретен</div>
-                <!-- 2178FF -->
                 {% endif %}
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -80,6 +79,7 @@
         <div class="course-info__text">{{ object.text|linebreaks }}</div>
     </div>
 </section>
+{% if documents_status %}
 <section class="course-modules">
     <div class="course-modules__container container">
         <div class="course-modules__wrapper">
@@ -124,4 +124,5 @@
         </div>
     </div>
 </section>
+{% endif %}
 {% endblock %}

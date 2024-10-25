@@ -17,7 +17,7 @@
                 <div class="module__cards">
                     {% for user_lecture in lectures %}
                     <a href="{% url 'lecture-detail' user_lecture.lecture.id %}" class="module__lectures__lecture">
-                        {% if lecture.status == "completed" %}
+                        {% if user_lecture.status == "completed" %}
                         <div class="module__lectures__lecture__status status-mobile" style="color: #2178FF;">Завершено</div>
                         {% else %}
                         <div class="module__lectures__lecture__status status-mobile">В процессе</div>
@@ -25,7 +25,6 @@
                         <div class="module__lectures__lecture__title">{{ user_lecture.lecture.name }}</div>
                         <div class="module__lectures__lecture__content">
                             <div class="module__lectures__lecture__duration">{{ user_lecture.lecture.duration }} минуты</div>
-                            <!-- <div class="module__lectures__lecture__status"></div> -->
                             {% if user_lecture.lecture.video %}
                                 <div class="module__lectures__lecture__file">
                                     <img src="{% static 'images/icon-video.svg' %}" alt="Video icon">
@@ -34,7 +33,7 @@
                             {% else %}
                                 <div class="module__lectures__lecture__file center-file"><span>PDF-файл</span></div>
                             {% endif %}
-                            {% if lecture.status == "completed" %}
+                            {% if user_lecture.status == "completed" %}
                             <div class="module__lectures__lecture__status" style="color: #2178FF;">Завершено</div>
                             {% else %}
                             <div class="module__lectures__lecture__status">В процессе</div>

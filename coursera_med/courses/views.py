@@ -4,7 +4,16 @@ from django.views.generic import CreateView, UpdateView, ListView, DeleteView, D
 
 from .forms import CourseForm, ModuleForm, LectureForm, UserCourseForm
 from .models import Course, Module, Lecture, UserCourse, UserLecture
+from main.models import UserDocuments
 from exam.models import Result
+
+
+def status_check(user):
+    user_documents = UserDocuments.objects.get(user=user)
+    status = False
+    if user_documents.status == 'approved':
+        status = True
+    return status
 
 
 class CoursesListView(ListView):
@@ -48,9 +57,9 @@ def course_detail_view(request, pk):
                 for lecture in module.lectures.all():
                     UserLecture.objects.create(lecture=lecture, module=module, user=request.user)
             return render(request, 'courses/course.html', {'object': object,
-                                                                          'relation_is_exists': relation_is_exists, 'user': request.user.is_authenticated,})
+                                                                          'relation_is_exists': relation_is_exists, 'user': request.user.is_authenticated, 'documents_status': status_check(request.user)})
     return render(request, 'courses/course.html', {'object': object,
-                                                                  'relation_is_exists': relation_is_exists, 'user': request.user.is_authenticated, 'quizes': quizes,})
+                                                                  'relation_is_exists': relation_is_exists, 'user': request.user.is_authenticated, 'quizes': quizes, 'documents_status': status_check(request.user)})
 
 
 def create_course_view(request):
@@ -89,9 +98,11 @@ class CourseDeleteView(DeleteView):
 
 
 def module_detail_view(request, pk, course_pk):
+    if not status_check(request.user):
+        return redirect('/home')
     module = Module.objects.get(id=pk)
     lectures = UserLecture.objects.filter(module=module)
-    return render(request, 'courses/module.html', {'module': module, 'user': request.user.is_authenticated, 'lectures': lectures})
+    return render(request, 'courses/module.html', {'module': module, 'user': request.user.is_authenticated, 'lectures': lectures,})
 
 
 def create_module_view(request):
@@ -123,6 +134,8 @@ class ModuleDeleteView(DeleteView):
 #     template_name = 'courses/lecture/lecture_detail.html'
 
 def lecture_detail_view(request, pk):
+    if not status_check(request.user):
+        return redirect('/home')
     lecture = Lecture.objects.get(pk=pk)
     user_lecture = UserLecture.objects.get(lecture=lecture)
     if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':

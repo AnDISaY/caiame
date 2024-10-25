@@ -1,7 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.http import JsonResponse
+from django.contrib.auth.decorators import user_passes_test
 from .models import Quiz, Answer, Result, ResultAnswers
+from main.models import UserDocuments
+
+
+def status_check(user):
+    user_documents = UserDocuments.objects.get(user=user)
+    status = False
+    if user_documents.status == 'approved':
+        status = True
+    return status
 
 
 class QuizListView(ListView):
@@ -10,8 +20,10 @@ class QuizListView(ListView):
 
 
 def quiz_view(request, pk):
+    if not status_check(request.user):
+        return redirect('/home')
     quiz = Quiz.objects.get(pk=pk)
-    context = {"quiz": quiz}
+    context = {"quiz": quiz, "user": request.user.is_authenticated,}
     
     if request.method == 'POST':
         score = 0
@@ -60,6 +72,8 @@ def quiz_view(request, pk):
 
 
 def quiz_results(request, pk):
+    if not status_check(request.user):
+        return redirect('/home')
     quiz = Quiz.objects.get(pk=pk)
     result = Result.objects.get(quiz=quiz, user=request.user)
     result_answers = ResultAnswers.objects.get(result=result)
