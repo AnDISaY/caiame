@@ -800,6 +800,9 @@ button {
   }
 }
 .courses__form__input select, .courses__form__title {
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  color: #A4A4A4;
   display: flex;
   align-items: center;
   width: 240px;
@@ -836,6 +839,7 @@ button {
   }
 }
 .courses__form__title {
+  color: #3C3C3C;
   font-weight: 700;
   font-size: 20px;
   width: 160px;
@@ -1015,8 +1019,33 @@ button {
     height: 1.563vw;
   }
 }
+.courses .notfindtext {
+  font-weight: 600;
+  font-size: 20px;
+}
+@media screen and (max-width: 1264px) {
+  .courses .notfindtext {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1110px) {
+  .courses .notfindtext {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 980px) {
+  .courses .notfindtext {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .courses .notfindtext {
+    font-size: 2.5vw;
+  }
+}
 .courses__cards {
   position: relative;
+  width: 100%;
 }
 .courses__cards__wrapper {
   display: flex;
@@ -1043,12 +1072,14 @@ button {
   .courses__cards__wrapper {
     gap: 24px 0px;
     padding: 30px;
+    width: calc(100% - 60px);
   }
 }
 @media screen and (max-width: 480px) {
   .courses__cards__wrapper {
     gap: 5vw 0px;
     padding: 6.25vw;
+    width: calc(100% - 12.5vw);
   }
 }
 .courses__cards__show-more {

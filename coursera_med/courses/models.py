@@ -15,6 +15,7 @@ language_choices = [
 duration_choices = [
     ('36', '36'),
     ('72', '72'),
+    ('144', '144'),
 ]
 
 type_choices = [
@@ -28,9 +29,14 @@ status_choices = [
 ]
 
 specialization_choice = [
-    ('cardiology', 'Кардиология'),
-    ('neurology', 'Неврология'),
-    ('orthopedics', 'Ортопедия'),
+    # ('cardiology', 'Кардиология'),
+    # ('neurology', 'Неврология'),
+    ('orthopedics', 'Травматалогия и ортопедия'),
+    ('orthopedics', 'Фармакалогия'),
+    ('orthopedics', 'Фармаконадзор'),
+    ('orthopedics', 'Хирургия'),
+    ('orthopedics', 'Офтальмология'),
+    ('palliative', 'Паллиативная помощь'),
 ]
 
 difficulty_choice = [
