@@ -59,7 +59,7 @@ def course_detail_view(request, pk):
             return render(request, 'courses/course.html', {'object': object,
                                                                           'relation_is_exists': relation_is_exists, 'user': request.user.is_authenticated, 'documents_status': status_check(request.user)})
     return render(request, 'courses/course.html', {'object': object,
-                                                                  'relation_is_exists': relation_is_exists, 'user': request.user.is_authenticated, 'quizes': quizes, 'documents_status': status_check(request.user)})
+                                                                   'user': request.user.is_authenticated, 'quizes': quizes})
 
 
 def create_course_view(request):
