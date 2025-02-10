@@ -31,7 +31,7 @@ status_choices = [
 specialization_choice = [
     # ('cardiology', 'Кардиология'),
     # ('neurology', 'Неврология'),
-    ('orthopedics', 'Травматалогия и ортопедия'),
+    ('orthopedics', 'Ортопедия'),
     ('orthopedics', 'Фармакалогия'),
     ('orthopedics', 'Фармаконадзор'),
     ('orthopedics', 'Хирургия'),
