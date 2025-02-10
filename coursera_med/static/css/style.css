@@ -1309,27 +1309,33 @@ button {
 }
 .courses__card__description {
   font-size: 14px;
-  line-height: 80%;
+  line-height: 140%;
+  max-width: 300px;
+  text-align: center;
 }
 @media screen and (max-width: 1264px) {
   .courses__card__description {
     font-size: 12px;
+    max-width: 280px;
   }
 }
 @media screen and (max-width: 1110px) {
   .courses__card__description {
     font-size: 11px;
+    max-width: 250px;
   }
 }
 @media screen and (max-width: 980px) {
   .courses__card__description {
     align-self: flex-start;
     font-size: 12px;
+    max-width: 300px;
   }
 }
 @media screen and (max-width: 480px) {
   .courses__card__description {
     font-size: 2.5vw;
+    max-width: 78.125vw;
   }
 }
 .courses__card__more {

@@ -1058,23 +1058,29 @@
 
         &__description {
             font-size: 14px;
-            line-height: 80%;
+            line-height: 140%;
+            max-width: 300px;
+            text-align: center;
 
             @media screen and (max-width: $md1) {
                 font-size: 12px;
+                max-width: 280px;
             }
 
             @media screen and (max-width: $md2) {
                 font-size: 11px;
+                max-width: 250px;
             }
             
             @media screen and (max-width: $md3) {
                 align-self: flex-start;
                 font-size: 12px;
+                max-width: 300px;
             }
 
             @media screen and (max-width: $md4) {
                 font-size: 2.5vw;
+                max-width: 78.125vw;
             }
         }
 
