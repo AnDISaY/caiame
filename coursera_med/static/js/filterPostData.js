@@ -136,6 +136,8 @@ function createCourse(resp) {
         tags.classList.add("courses__card__tags");
         tag = document.createElement("div");
         tag.classList.add("courses__card__tag");
+        console.log(fields)
+        console.log(fields['specialization'])
         tag.innerHTML = fields['specialization']
         tag2 = document.createElement("div");
         tag2.classList.add("courses__card__tag");
