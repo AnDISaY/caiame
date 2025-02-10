@@ -1311,7 +1311,7 @@ button {
   font-size: 14px;
   line-height: 140%;
   max-width: 300px;
-  text-align: center;
+  text-align: start;
 }
 @media screen and (max-width: 1264px) {
   .courses__card__description {
