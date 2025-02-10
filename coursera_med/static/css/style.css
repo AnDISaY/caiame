@@ -1150,34 +1150,34 @@ button {
 .courses__card__tags {
   display: flex;
   flex-wrap: wrap;
-  max-width: 300px;
+  max-width: 340px;
   gap: 8px;
   margin-bottom: 20px;
 }
 @media screen and (max-width: 1264px) {
   .courses__card__tags {
-    max-width: 260px;
+    max-width: 300px;
     gap: 7px;
     margin-bottom: 18px;
   }
 }
 @media screen and (max-width: 1110px) {
   .courses__card__tags {
-    max-width: 230px;
+    max-width: 260px;
     gap: 6px;
     margin-bottom: 16px;
   }
 }
 @media screen and (max-width: 980px) {
   .courses__card__tags {
-    max-width: 206px;
+    max-width: 315px;
     gap: 6px;
     margin-bottom: 24px;
   }
 }
 @media screen and (max-width: 480px) {
   .courses__card__tags {
-    max-width: 48vw;
+    max-width: 65.625vw;
     gap: 1.25vw;
     margin-bottom: 5vw;
   }
